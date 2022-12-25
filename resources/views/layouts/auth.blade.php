@@ -18,9 +18,6 @@
 
 <body>
     <div id="app">
-        <!-- NAVBAR -->
-        @include('components.auth.navbar')
-
         <main class="py-5">
             @yield('content')
         </main>

@@ -7,9 +7,9 @@
 
     <title>@yield('title')</title>
 
-    <meta name="description" content="Free Bootstrap 4 Theme by uicookies.com">
+    <meta name="description" content="Alchemist Law">
     <meta name="keywords"
-        content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+        content="alchemist law">
 
     {{-- STYLE --}}
     @stack('prepend-style')
