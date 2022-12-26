@@ -5,6 +5,6 @@ return [
     "why" => "Mengapa",
     "practicing_areas" => "Area Praktek",
     "attorneys" => "Pengacara",
-    "testimonials" => "Testimonial",
+    "our_services" => "Layanan Kami",
     "contact" => "Kontak",
 ];

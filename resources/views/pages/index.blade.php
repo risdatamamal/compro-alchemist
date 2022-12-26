@@ -6,7 +6,8 @@
 
 @section('content')
     <section class="pb_cover_v1 text-left cover-bg-black cover-bg-opacity-4"
-        style="background-image: url(assets/images/1900x1200_img_7.jpg)" id="section-home">
+        style="background-image: {{ $header->bg_url == null ? 'url(assets/images/1900x1200_img_7.jpg)' : 'url(storage/' . $header->bg_url . ')' }}"
+        id="section-home">
         <div class="container">
             <div class="row align-items-center justify-content-end">
                 <div class="col-md-6  order-md-1">
@@ -15,7 +16,8 @@
                     <div class="sub-heading">
                         <p class="mb-5">{{ $header->subtitle }}</p>
                         <p><a href="#section-contact" role="button"
-                                class="btn smoothscroll pb_outline-light btn-xl pb_font-13 p-4 rounded-pill pb_letter-spacing-2">{{ $header->button }}</a></p>
+                                class="btn smoothscroll pb_outline-light btn-xl pb_font-13 p-4 rounded-pill pb_letter-spacing-2">{{ $header->button }}</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -28,18 +30,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 pr-md-5 pr-sm-0">
-                    <h2 class="mt-0 heading-border-top mb-3 font-weight-normal">Who We Are</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    <h2 class="mt-0 heading-border-top mb-3 font-weight-normal">{{ $about->title }}</h2>
+                    <p>{!! $about->desc !!}</p>
                 </div>
                 <div class="col-lg-7">
                     <div class="images">
-                        <img class="img1 img-fluid" src="assets/images/600x450_img_2.jpg"
-                            alt="free Template by uicookies.com">
-                        <img class="img2" src="assets/images/800x500_img_1.jpg" alt="free Template by uicookies.com">
+                        <iframe width="600" height="450" src="{{ $about->video_url }}" title="Video About Us"
+                            frameborder="10"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        {{-- <img class="img1 img-fluid" src="assets/images/600x450_img_2.jpg"
+                            alt="Images 1"> --}}
+                        {{-- <img class="img2" src="assets/images/800x500_img_1.jpg" alt="Images 2"> --}}
                     </div>
                 </div>
 
@@ -48,49 +49,94 @@
     </section>
     <!-- END section -->
 
-
-    <section class="pb_section bg-light">
+    <section class="pb_section bg-light" data-section="our-services" id="section-our-services">
         <div class="container">
+            <div class="row justify-content-md-center text-center mb-5">
+                <div class="col-lg-7">
+                    <h2 class="mt-0 heading-border-top font-weight-normal">Our Services</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
+                        a large language ocean.</p>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-md">
-                    <div class="media pb_media_v2 d-block text-center mb-3">
-                        <div class="icon border border-gray rounded-circle d-block mr-3 display-4 mx-auto mb-4"><i
-                                class="flaticon text-secondary flaticon-jury"></i></div>
+                <div class="col-lg">
+
+                    <div class="media pb_media_v1 mb-5">
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-jury"></i></div>
                         <div class="media-body">
-                            <h3 class="mt-0 pb_font-20">Group of Lawyers</h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h3 class="mt-0 pb_font-17">Group of Lawyers</h3>
+                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
+                                Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg">
+                    <div class="media pb_media_v1 mb-5">
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-law"></i></div>
+                        <div class="media-body">
+                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
+                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
+                                Semantics, a large language ocean.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="media pb_media_v2 d-block text-center  mb-3">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i
-                                class="flaticon text-secondary flaticon-law"></i></div>
+                <div class="col-lg">
+                    <div class="media pb_media_v1 mb-5">
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-courthouse"></i></div>
                         <div class="media-body">
-                            <h3 class="mt-0 pb_font-20">No One is Above The Law</h3>
-                            <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large
-                                language ocean.</p>
+                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
+                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
+                                fly into your mouth decided to leave for the far World of Grammar.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="media pb_media_v2 d-block text-center  mb-3">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i
-                                class="flaticon text-secondary flaticon-courthouse"></i></div>
+                <div class="w-100"></div>
+                <div class="col-lg">
+
+                    <div class="media pb_media_v1 mb-5">
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-jury"></i></div>
                         <div class="media-body">
-                            <h3 class="mt-0 pb_font-20">Hall of Justice</h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary
-                                regelialia.</p>
+                            <h3 class="mt-0 pb_font-17">Family Law</h3>
+                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
+                                Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg">
+                    <div class="media pb_media_v1 mb-5">
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-courthouse"></i></div>
+                        <div class="media-body">
+                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
+                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
+                                Semantics, a large language ocean.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="media pb_media_v1 mb-5">
+
+                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
+                                class="flaticon flaticon-law"></i></div>
+                        <div class="media-body">
+                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
+                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
+                                fly into your mouth decided to leave for the far World of Grammar.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- END section -->
 
-    <section class="pb_sm_py_cover text-center cover-bg-black cover-bg-opacity-4"
+    {{-- <section class="pb_sm_py_cover text-center cover-bg-black cover-bg-opacity-4"
         style="background-image: url(assets/images/1900x1200_img_3.jpg)">
         <div class="container">
 
@@ -106,7 +152,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <!-- END section -->
 
     <section class="pb_section" data-section="why-us" id="section-why-us">
@@ -374,7 +420,6 @@
             </div>
         </div>
     </section>
-    <!-- END section -->
 
     <section class="pb_section bg-light bg-image with-overlay" data-section="attorneys" id="section-attorneys"
         style="background-image: url(assets/images/1900x1200_img_2.jpg)">
@@ -424,143 +469,6 @@
             </div>
         </div>
     </section>
-
-
-    <section class="pb_section pb_testimonial_v1" data-section="testimonials" id="section-testimonials">
-        <div class="container">
-            <div class="row justify-content-md-center text-center mb-5">
-                <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">Happy Customers</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
-                </div>
-            </div>
-            <div class="row justify-content-md-center">
-                <div class="col-md-10 col-sm-12 mb-5">
-                    <div class="single-item-no-arrow pb_slide_v1">
-                        <div>
-                            <div class="media">
-                                <img class="d-flex img-fluid rounded-circle mb-sm-5" src="assets/images/square_img_5.jpg"
-                                    alt="Generic placeholder image">
-                                <div class="media-body pl-md-5 pl-sm-0">
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries
-                                            Vokalia and Consonantia, there live the blind texts. Separated they live in
-                                            Bookmarksgrove right at the coast of the Semantics, a large language
-                                            ocean.&rdquo;</p>
-                                        <p class="pb_author">
-                                            <citeclass="text-uppercase">John Smith</cite> Designer at uicookies.com
-                                        </p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="media">
-                                <img class="d-flex img-fluid rounded-circle mb-sm-5" src="assets/images/square_img_5.jpg"
-                                    alt="Generic placeholder image">
-                                <div class="media-body pl-md-5 pl-sm-0">
-                                    <blockquote>
-                                        <p>&ldquo;A small river named Duden flows by their place and supplies it with
-                                            the necessary regelialia. It is a paradisematic country, in which roasted
-                                            parts of sentences fly into your mouth.&rdquo;</p>
-                                        <p class="pb_author"><cite class="text-uppercase">John Smith</cite> Designer
-                                            at uicookies.com</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- END section -->
-
-    <section class="pb_section bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg">
-
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-jury"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Group of Lawyers</h3>
-                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-law"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
-                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
-                                Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-courthouse"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
-                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
-                                fly into your mouth decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-lg">
-
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-jury"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Family Law</h3>
-                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-courthouse"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
-                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
-                                Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-law"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
-                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
-                                fly into your mouth decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
 
     <section class="pb_section" data-section="contact" id="section-contact">
         <div class="container">

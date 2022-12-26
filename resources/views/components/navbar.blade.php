@@ -15,15 +15,15 @@
                             @lang('navbar.about')
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Alchemist Law Office</a>
+                            <a class="dropdown-item" href="#section-about">Alchemist Law Office</a>
                             <a class="dropdown-item" href="#">Alchemist Muda Indonesia</a>
                         </div>
                     </div>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="#section-our-services">@lang('navbar.our_services')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-why-us">@lang('navbar.why')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-practicing-areas">@lang('navbar.practicing_areas')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-attorneys">@lang('navbar.attorneys')</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-testimonials">@lang('navbar.testimonials')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-contact">@lang('navbar.contact')</a></li>
             </ul>
         </div>

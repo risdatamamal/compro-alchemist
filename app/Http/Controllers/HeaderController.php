@@ -21,6 +21,8 @@ class HeaderController extends Controller
         $data = $request->all();
         $item = Header::findOrFail($id);
 
+        $data['bg_url'] = $request->file('bg_url')->store('assets/header', 'public');
+
         $item->update($data);
 
         return redirect()->route('header');

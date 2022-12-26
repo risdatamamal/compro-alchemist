@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Header;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class HomeController extends Controller
     {
         $data = [
             'header' => Header::where('id', 1)->first(),
+            'about' => About::where('id', 1)->first(),
         ];
 
         return view('pages.index', $data);

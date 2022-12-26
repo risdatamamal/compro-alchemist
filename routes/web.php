@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeaderController;
@@ -35,4 +36,11 @@ Route::prefix('admin')
         Route::get('/header', [HeaderController::class, 'index'])->name('header');
         Route::put('/header/{id}', [HeaderController::class, 'update'])->name('update-header');
 
+        // Update Header
+        Route::get('/header', [HeaderController::class, 'index'])->name('header');
+        Route::put('/header/{id}', [HeaderController::class, 'update'])->name('update-header');
+
+        // Update About
+        Route::get('/about', [AboutController::class, 'index'])->name('about');
+    Route::put('/about/{id}', [AboutController::class, 'update'])->name('update-about');
     });

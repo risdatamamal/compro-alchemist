@@ -5,6 +5,6 @@ return [
     "why" => "Why",
     "practicing_areas" => "Practicing Areas",
     "attorneys" => "Attorneys",
-    "testimonials" => "Testimonials",
+    "our_services" => "Our Services",
     "contact" => "Contact",
 ];
