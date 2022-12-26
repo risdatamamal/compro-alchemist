@@ -11,13 +11,11 @@
             <div class="row align-items-center justify-content-end">
                 <div class="col-md-6  order-md-1">
 
-                    <h2 class="heading mb-3">Alchemist Law Office</h2>
+                    <h2 class="heading mb-3">{{ $header->title }}</h2>
                     <div class="sub-heading">
-                        <p class="mb-5">A free template by <a href="https://uicookies.com/">uicookies.com</a> for Law
-                            Firm</p>
+                        <p class="mb-5">{{ $header->subtitle }}</p>
                         <p><a href="#section-contact" role="button"
-                                class="btn smoothscroll pb_outline-light btn-xl pb_font-13 p-4 rounded-pill pb_letter-spacing-2">Free
-                                Consultation</a></p>
+                                class="btn smoothscroll pb_outline-light btn-xl pb_font-13 p-4 rounded-pill pb_letter-spacing-2">{{ $header->button }}</a></p>
                     </div>
                 </div>
             </div>

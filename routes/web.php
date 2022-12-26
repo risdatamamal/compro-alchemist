@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\{Route, Auth};
 
@@ -25,8 +26,13 @@ Auth::routes();
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
-        Route::get('/alchemist-law-office', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // CRUD Admin
         Route::resource('admin', AdminController::class);
+
+        // Update Header
+        Route::get('/header', [HeaderController::class, 'index'])->name('header');
+        Route::put('/header/{id}', [HeaderController::class, 'update'])->name('update-header');
+
     });

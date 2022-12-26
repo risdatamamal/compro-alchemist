@@ -39,9 +39,9 @@
                     <img src="/assets/images/admin.png" alt="" class="my-4" style="max-width: 150px" />
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ request()->is('admin/alchemist-law-office') ? 'active' : '' }}">Dashboard</a>
+                    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ request()->is('admin') ? 'active' : '' }}">Dashboard</a>
                     <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action {{ request()->is('admin/admin*') ? 'active' : '' }}">Admin</a>
-                    <a href="#" class="list-group-item list-group-item-action">Header</a>
+                    <a href="{{ route('header') }}" class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
                     <a href="#" class="list-group-item list-group-item-action">About</a>
                     <a href="#" class="list-group-item list-group-item-action">Why Us</a>
                     <a href="#" class="list-group-item list-group-item-action">Article</a>
@@ -80,7 +80,7 @@
                                     </a>
                                     <div class="dropdown-menu">
                                         <a href="{{ route('home') }}" class="dropdown-item">Home</a>
-                                        <a href="#" class="dropdown-item">Account</a>
+                                        <a href="#" class="dropdown-item">Dashboard Alchemist Muda Indonesia</a>
                                         <div class="dropdown-divider"></div>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

@@ -10,6 +10,8 @@
     <meta name="description" content="Alchemist Law">
     <meta name="keywords"
         content="alchemist law">
+    <link rel="shortcut icon" href="/assets/images/admin.png" type="image/x-icon" />
+
 
     {{-- STYLE --}}
     @stack('prepend-style')
