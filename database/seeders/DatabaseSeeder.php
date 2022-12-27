@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             HeaderSeeder::class,
             AboutSeeder::class,
             OurServiceSeeder::class,
-            WhySeeder::class,
+            // WhySeeder::class,
         ]);
     }
 }
