@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OurServiceController;
 use Illuminate\Support\Facades\{Route, Auth};
 
 /*
@@ -42,5 +43,14 @@ Route::prefix('admin')
 
         // Update About
         Route::get('/about', [AboutController::class, 'index'])->name('about');
-    Route::put('/about/{id}', [AboutController::class, 'update'])->name('update-about');
+        Route::put('/about/{id}', [AboutController::class, 'update'])->name('update-about');
+
+        // Update Our Service
+        Route::get('/our-service', [OurServiceController::class, 'index'])->name('our-service');
+        Route::put('/our-service/{id}', [OurServiceController::class, 'updateOurService'])->name('update-our-service');
+        Route::get('/our-service/create', [OurServiceController::class, 'create'])->name('create-our-service');
+        Route::post('/our-service/create', [OurServiceController::class, 'store'])->name('store-our-service');
+        Route::get('/our-service/edit/{id}', [OurServiceController::class, 'edit'])->name('edit-our-service');
+        Route::put('/our-service/edit/{id}', [OurServiceController::class, 'updateListOurService'])->name('update-list-our-service');
+        Route::delete('/our-service/{id}', [OurServiceController::class, 'destroy'])->name('delete-our-service');
     });

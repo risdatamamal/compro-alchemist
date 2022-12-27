@@ -43,7 +43,7 @@
                     <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action {{ request()->is('admin/admin*') ? 'active' : '' }}">Admin</a>
                     <a href="{{ route('header') }}" class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
                     <a href="{{ route('about') }}" class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
-                    <a href="#" class="list-group-item list-group-item-action">Our Services</a>
+                    <a href="{{ route('our-service') }}" class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Services</a>
                     <a href="#" class="list-group-item list-group-item-action">Why Us</a>
                     <a href="#" class="list-group-item list-group-item-action">Article</a>
                     <a href="#" class="list-group-item list-group-item-action">Practicing Areas</a>

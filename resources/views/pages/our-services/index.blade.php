@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Update About
+    Update Our Service
 @endsection
 
 @section('content')
@@ -11,13 +11,14 @@
             <div class="dashboard-heading">
                 <h2 class="dashboard-title">Admin</h2>
                 <p class="dashboard-subtitle">
-                    Update About Content
+                    Update Our Service Content
                 </p>
             </div>
             <div class="dashboard-content">
-                <div class="row">
+                <div class="row mb-5">
                     <div class="col-12">
-                        <form action="{{ route('update-about', $about->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('update-our-service', $service->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <div class="card">
@@ -28,7 +29,7 @@
                                                 <label>Title</label>
                                                 <input type="text"
                                                     class="form-control @error('title') is-invalid @enderror" name="title"
-                                                    required placeholder="Title on header" value="{{ $about->title }}" />
+                                                    required placeholder="Title on header" value="{{ $service->title }}" />
                                                 @error('title')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -40,21 +41,8 @@
                                             <div class="form-group">
                                                 <label>Description</label>
                                                 <textarea type="text" class="form-control @error('desc') is-invalid @enderror" id="desc" name="desc"
-                                                    value="{{ old('desc') }}" required>{!! $about->desc !!}</textarea>
+                                                    value="{{ old('desc') }}" required>{!! $service->desc !!}</textarea>
                                                 @error('desc')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Video Source Embed</label>
-                                                <input type="text"
-                                                    class="form-control @error('video_url') is-invalid @enderror" name="video_url"
-                                                    required placeholder="https://www.youtube.com/embed/xxxxxxx" value="{{ $about->video_url }}" />
-                                                @error('video_url')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -74,6 +62,31 @@
                         </form>
                     </div>
                 </div>
+                <div class="row mb-5">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{{ route('create-our-service') }}" class="btn btn-primary mb-3 rounded-pill">
+                                    + Create New Our Service
+                                </a>
+                                <div class="table-responsive">
+                                    <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Title</th>
+                                                <th>Desc</th>
+                                                <th>Icon</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -86,6 +99,41 @@
         CKEDITOR.replace('desc');
         $(document).ready(function() {
             $('.select2').select2();
+        });
+    </script>
+    <script>
+        // AJAX DataTable
+        var datatable = $('#crudTable').DataTable({
+            processing: true,
+            serverSide: true,
+            ordering: true,
+            ajax: {
+                url: '{!! url()->current() !!}',
+            },
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'title',
+                    name: 'title'
+                },
+                {
+                    data: 'desc',
+                    name: 'desc'
+                },
+                {
+                    data: 'icon_url',
+                    name: 'icon_url'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false,
+                    width: '15%'
+                },
+            ]
         });
     </script>
 @endpush

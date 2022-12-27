@@ -35,8 +35,8 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="images">
-                        <iframe width="600" height="450" src="{{ $about->video_url }}" title="Video About Us"
-                            frameborder="10"
+                        <iframe class="w-100" width="600" height="450" src="{{ $about->video_url }}"
+                            title="Video About Us" frameborder="10"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         {{-- <img class="img1 img-fluid" src="assets/images/600x450_img_2.jpg"
                             alt="Images 1"> --}}
@@ -53,85 +53,30 @@
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
                 <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">Our Services</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
+                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $service->title }}</h2>
+                    <p>{!! $service->desc !!}</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg">
-
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-jury"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Group of Lawyers</h3>
-                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts.</p>
+                {{-- Forelse List Our Services --}}
+                @forelse ($listOurServices as $ourservice)
+                    <div class="col-lg">
+                        <div class="media pb_media_v1 mb-5">
+                            <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary">
+                                <img src="{{ Storage::url($ourservice->icon_url) }}" alt="Icon" class="mx-auto mt-2" height="64px"
+                                    width="64px" />
+                            </div>
+                            <div class="media-body">
+                                <h3 class="mt-0 pb_font-17">{{ $ourservice->title }}</h3>
+                                <p class="pb_font-14">{!! $ourservice->desc !!}</p>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-law"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
-                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
-                                Semantics, a large language ocean.</p>
-                        </div>
+                @empty
+                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                        No List Our Service Found
                     </div>
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-courthouse"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
-                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
-                                fly into your mouth decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-lg">
-
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-jury"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Family Law</h3>
-                            <p class="pb_font-14">Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-courthouse"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">No One is Above The Law</h3>
-                            <p class="pb_font-14">Separated they live in Bookmarksgrove right at the coast of the
-                                Semantics, a large language ocean.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg">
-                    <div class="media pb_media_v1 mb-5">
-
-                        <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i
-                                class="flaticon flaticon-law"></i></div>
-                        <div class="media-body">
-                            <h3 class="mt-0 pb_font-17">Hall of Justice</h3>
-                            <p class="pb_font-14">It is a paradisematic country, in which roasted parts of sentences
-                                fly into your mouth decided to leave for the far World of Grammar.</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -430,6 +375,41 @@
                     <p class="text-white">Far far away, behind the word mountains, far from the countries Vokalia and
                         Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
                         coast of the Semantics, a large language ocean.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="card text-center pb_card_v1 mb-4">
+                        <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title mt-0 mb-2">Richard Wilson</h4>
+                            <h6 class="card-subtitle mb-2">Family Lawyer</h6>
+                            <p><a href="#">Read Full Bio</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card text-center pb_card_v1 mb-4">
+                        <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title mt-0 mb-2">Steve White</h4>
+                            <h6 class="card-subtitle mb-2">Financial Lawyer</h6>
+                            <p><a href="#">Read Full Bio</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card text-center pb_card_v1 mb-4">
+                        <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title mt-0 mb-2">Ryan David</h4>
+                            <h6 class="card-subtitle mb-2">Business Lawyer</h6>
+                            <p><a href="#">Read Full Bio</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
