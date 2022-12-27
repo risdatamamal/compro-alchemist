@@ -42,3 +42,10 @@ In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_
 php artisan migrate
 
 ```
+
+8. Seed the database
+```markdown
+
+php artisan db:seed
+
+```
