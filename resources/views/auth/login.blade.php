@@ -14,7 +14,7 @@
                             <div class="col-lg-6 col-sm-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h5 text-gray-900 mb-4">Login Admin</h1>
+                                        <h1 class="h5 text-gray-900 mb-4">LOGIN</h1>
                                         @if ($notification = Session::get('success'))
                                             <div class="alert alert-success">
                                                 <strong>"{{ $notification }}"</strong>
@@ -59,11 +59,8 @@
                             </div>
                             <div class="col-lg-6 col-sm-12 mx-auto my-auto">
                                 <div class="text-center">
-                                    <p>Belum punya akun?</p>
-                                    <a href="{{ route('register') }}"
-                                        class="mt-3 btn btn-primary w-50 rounded-pill text-center">
-                                        Register
-                                    </a>
+                                    <img src="/assets/images/admin.png" alt="Logo" class="my-4"
+                                        style="max-width: 150px" />
                                 </div>
                             </div>
                         </div>
