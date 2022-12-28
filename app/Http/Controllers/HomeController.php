@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Header;
+use App\Models\ListClient;
 use App\Models\ListOurService;
 use App\Models\ListWhy;
 use App\Models\OurService;
@@ -21,6 +22,7 @@ class HomeController extends Controller
             'listOurServices' => ListOurService::all(),
             'why' => Why::where('id', 1)->first(),
             'listWhy' => ListWhy::all(),
+            'listClient' => ListClient::all(),
         ];
 
         return view('pages.index', $data);

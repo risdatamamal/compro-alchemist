@@ -98,16 +98,18 @@
                     <div id="exampleAccordion" class="pb_accordion" data-children=".item">
                         @forelse ($listWhy as $listwhy)
                             <div class="item">
-                                <a data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion{{ $listwhy->id }}"
-                                    aria-expanded="true" aria-controls="exampleAccordion{{ $listwhy->id }}"
+                                <a data-toggle="collapse" data-parent="#exampleAccordion"
+                                    href="#exampleAccordion{{ $listwhy->id }}" aria-expanded="true"
+                                    aria-controls="exampleAccordion{{ $listwhy->id }}"
                                     class="pb_font-18">{{ $listwhy->title }}</a>
-                                <div id="exampleAccordion{{ $listwhy->id }}" class="collapse {{ $listwhy->id == 1 ? 'show' : '' }}" role="tabpanel">
+                                <div id="exampleAccordion{{ $listwhy->id }}"
+                                    class="collapse {{ $listwhy->id == 1 ? 'show' : '' }}" role="tabpanel">
                                     <p>{!! $listwhy->desc !!}</p>
                                 </div>
                             </div>
                         @empty
                             <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                                No List Our Service Found
+                                No List Why Found
                             </div>
                         @endforelse
                     </div>
@@ -120,71 +122,22 @@
 
     <section class="pb_section">
         <div class="multiple-items pb_slide_v1">
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_4.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Criminal Law</h2>
-                        <p>Read More</p>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_2.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Migration Law</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_3.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Civil Rights</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_4.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Property Law</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_1.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Civil Rights</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_2.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>State Laws</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
-            <div>
-                <a href="#" class="link-block">
-                    <img src="assets/images/1900x1200_img_3.jpg" alt="" class="img-fluid">
-                    <div class="slide-text">
-                        <h2>Immigration Laws</h2>
-                        <span>Read More</span>
-                    </div>
-                </a>
-            </div>
+            @forelse ($listClient as $client)
+                <div>
+                    <a href="{{ $client->link }}" class="link-block">
+                        <img src="{{ Storage::url($client->image_url) }}" alt="Clients" class="img-fluid">
+                        <div class="slide-text">
+                            <h2>{{ $client->name }}</h2>
+                            <p>Read More</p>
+                        </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                    No List Client Found
+                </div>
+            @endforelse
         </div>
-
     </section>
     <!-- END section -->
 
@@ -202,7 +155,6 @@
 
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="single-item pb_slide_v2">
                         <div>
                             <div class="d-lg-flex d-md-block slide_content">
@@ -325,7 +277,7 @@
                         coast of the Semantics, a large language ocean.</p>
                 </div>
             </div>
-            <div class="row">
+            <div class="multiple-items pb_slide_v1">
                 <div class="col-md">
                     <div class="card text-center pb_card_v1 mb-4">
                         <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
@@ -355,30 +307,6 @@
                         <div class="card-body">
                             <h4 class="card-title mt-0 mb-2">Ryan David</h4>
                             <h6 class="card-subtitle mb-2">Business Lawyer</h6>
-                            <p><a href="#">Read Full Bio</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md">
-                    <div class="card text-center pb_card_v1 mb-4">
-                        <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title mt-0 mb-2">Richard Wilson</h4>
-                            <h6 class="card-subtitle mb-2">Family Lawyer</h6>
-                            <p><a href="#">Read Full Bio</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="card text-center pb_card_v1 mb-4">
-                        <img class="card-img-top rounded-circle w-50 mx-auto" src="assets/images/square_img_5.jpg"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title mt-0 mb-2">Steve White</h4>
-                            <h6 class="card-subtitle mb-2">Financial Lawyer</h6>
                             <p><a href="#">Read Full Bio</a></p>
                         </div>
                     </div>

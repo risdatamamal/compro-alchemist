@@ -21,8 +21,6 @@ class HeaderController extends Controller
         $data = $request->all();
         $item = Header::findOrFail($id);
 
-
-
         if ($request->title) {
             $data['title'] = $request->title;
         } else {

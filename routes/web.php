@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
@@ -54,4 +55,12 @@ Route::prefix('admin')
         Route::get('/why/edit/{id}', [WhyController::class, 'edit'])->name('edit-why');
         Route::put('/why/edit/{id}', [WhyController::class, 'updateListWhy'])->name('update-list-why');
         Route::delete('/why/{id}', [WhyController::class, 'destroy'])->name('delete-why');
+
+        // CRUD List Client
+        Route::get('/client', [ClientController::class, 'index'])->name('client');
+        Route::get('/client/create', [ClientController::class, 'create'])->name('create-client');
+        Route::post('/client/create', [ClientController::class, 'store'])->name('store-client');
+        Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('edit-client');
+        Route::put('/client/edit/{id}', [ClientController::class, 'update'])->name('update-client');
+        Route::delete('/client/{id}', [ClientController::class, 'destroy'])->name('delete-client');
     });

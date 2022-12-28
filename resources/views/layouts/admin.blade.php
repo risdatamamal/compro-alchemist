@@ -45,11 +45,11 @@
                     <a href="{{ route('about') }}" class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
                     <a href="{{ route('our-service') }}" class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Services</a>
                     <a href="{{ route('why') }}" class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
-                    <a href="#" class="list-group-item list-group-item-action">Clients</a>
+                    <a href="{{ route('client') }}" class="list-group-item list-group-item-action {{ request()->is('admin/client*') ? 'active' : '' }}">Clients</a>
                     <a href="#" class="list-group-item list-group-item-action">Practicing Areas</a>
                     <a href="#" class="list-group-item list-group-item-action">Attorneys</a>
                     <a href="#" class="list-group-item list-group-item-action">Contact</a>
-
+                    <a href="#" class="list-group-item list-group-item-action">Social Media</a>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="list-group-item list-group-item-action">Sign Out</a>

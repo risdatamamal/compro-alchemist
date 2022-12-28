@@ -12,7 +12,7 @@
     >
     <div class="container-fluid">
         <div class="dashboard-heading">
-            <h2 class="dashboard-title">Admin</h2>
+            <h2 class="dashboard-title">Admin Account</h2>
             <p class="dashboard-subtitle">
                 List of Admins
             </p>
