@@ -21,7 +21,31 @@ class HeaderController extends Controller
         $data = $request->all();
         $item = Header::findOrFail($id);
 
-        $data['bg_url'] = $request->file('bg_url')->store('assets/header', 'public');
+
+
+        if ($request->title) {
+            $data['title'] = $request->title;
+        } else {
+            unset($data['title']);
+        }
+
+        if ($request->subtitle) {
+            $data['subtitle'] = $request->subtitle;
+        } else {
+            unset($data['subtitle']);
+        }
+
+        if ($request->button) {
+            $data['button'] = $request->button;
+        } else {
+            unset($data['button']);
+        }
+
+        if ($request->file('bg_url') == null) {
+            $data['bg_url'] = $item->bg_url;
+        } else if ($request->file('bg_url') != null) {
+            $data['bg_url'] = $request->file('bg_url')->store('assets/header', 'public');
+        }
 
         $item->update($data);
 

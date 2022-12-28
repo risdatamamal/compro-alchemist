@@ -49,3 +49,10 @@ php artisan migrate
 php artisan db:seed
 
 ```
+
+9. Link to Storage
+```markdown
+
+php artisan storage:link
+
+```
