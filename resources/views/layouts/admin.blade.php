@@ -44,8 +44,8 @@
                     <a href="{{ route('header') }}" class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
                     <a href="{{ route('about') }}" class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
                     <a href="{{ route('our-service') }}" class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Services</a>
-                    <a href="#" class="list-group-item list-group-item-action">Why Us</a>
-                    <a href="#" class="list-group-item list-group-item-action">Article</a>
+                    <a href="{{ route('why') }}" class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
+                    <a href="#" class="list-group-item list-group-item-action">Clients</a>
                     <a href="#" class="list-group-item list-group-item-action">Practicing Areas</a>
                     <a href="#" class="list-group-item list-group-item-action">Attorneys</a>
                     <a href="#" class="list-group-item list-group-item-action">Contact</a>
@@ -80,7 +80,6 @@
                                     </a>
                                     <div class="dropdown-menu">
                                         <a href="{{ route('home') }}" class="dropdown-item">Home</a>
-                                        <a href="#" class="dropdown-item">Dashboard Alchemist Muda Indonesia</a>
                                         <div class="dropdown-divider"></div>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -103,7 +102,6 @@
                                         data-toggle="dropdown"> Hi, {{ Auth::user()->name }} </a>
                                     <div class="dropdown-menu">
                                         <a href="{{ route('home') }}" class="dropdown-item">Home</a>
-                                        <a href="#" class="dropdown-item">Account</a>
                                         <div class="dropdown-divider"></div>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

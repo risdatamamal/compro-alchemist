@@ -68,7 +68,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group mb-4">
                                                 <label>Background</label>
-                                                <p>*Note: Dimension 1900x1200</p>
+                                                <p>*Note: Dimension 1900x1200 pixel</p>
                                                 <img id="image-preview" class="d-block mb-2 img-fluid"
                                                     src="{{ $header->bg_url == null ? '/assets/images/1900x1200_img_7.jpg' : Storage::url($header->bg_url)  }}" alt="Preview" />
                                                 <input type="file"

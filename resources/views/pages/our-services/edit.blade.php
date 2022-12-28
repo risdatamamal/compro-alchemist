@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Product Description</label>
+                                                <label>Description</label>
                                                 <textarea name="desc" id="desc">{!! $item->desc !!}</textarea>
                                             </div>
                                         </div>
