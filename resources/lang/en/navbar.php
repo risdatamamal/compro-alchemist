@@ -3,8 +3,9 @@ return [
     "home" => "Home",
     "about" => "About",
     "why" => "Why",
+    "client" => "Client",
     "practicing_areas" => "Practicing Areas",
     "attorneys" => "Attorneys",
-    "our_services" => "Our Services",
+    "experience" => "Experience",
     "contact" => "Contact",
 ];

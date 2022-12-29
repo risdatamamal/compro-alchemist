@@ -11,7 +11,7 @@
             <div class="dashboard-heading">
                 <h2 class="dashboard-title">Our Service</h2>
                 <p class="dashboard-subtitle">
-                    Edit "{{ $item->name }}" Our Service
+                    Edit "{{ $item->title }}" Our Service
                 </p>
             </div>
             <div class="dashboard-content">

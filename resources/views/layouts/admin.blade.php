@@ -39,15 +39,26 @@
                     <img src="/assets/images/admin.png" alt="" class="my-4" style="max-width: 150px" />
                 </div>
                 <div class="list-group list-group-flush">
-                    <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ request()->is('admin') ? 'active' : '' }}">Dashboard</a>
-                    <a href="{{ route('admin.index') }}" class="list-group-item list-group-item-action {{ request()->is('admin/admin*') ? 'active' : '' }}">Admin</a>
-                    <a href="{{ route('header') }}" class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
-                    <a href="{{ route('about') }}" class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
-                    <a href="{{ route('our-service') }}" class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Services</a>
-                    <a href="{{ route('why') }}" class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
-                    <a href="{{ route('client') }}" class="list-group-item list-group-item-action {{ request()->is('admin/client*') ? 'active' : '' }}">Clients</a>
-                    <a href="#" class="list-group-item list-group-item-action">Practicing Areas</a>
-                    <a href="#" class="list-group-item list-group-item-action">Attorneys</a>
+                    <a href="{{ route('dashboard') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin') ? 'active' : '' }}">Dashboard</a>
+                    <a href="{{ route('admin.index') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/admin*') ? 'active' : '' }}">Admin</a>
+                    <a href="{{ route('header') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
+                    <a href="{{ route('about') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
+                    <a href="{{ route('why') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
+                    <a href="{{ route('our-service') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our
+                        Services</a>
+                    <a href="{{ route('client') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/client*') ? 'active' : '' }}">Clients</a>
+                    <a href="{{ route('practicing-area') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/practicing-area*') ? 'active' : '' }}">Practicing
+                        Areas</a>
+                    <a href="{{ route('attorney') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorneys</a>
                     <a href="#" class="list-group-item list-group-item-action">Contact</a>
                     <a href="#" class="list-group-item list-group-item-action">Social Media</a>
                     <a href="{{ route('logout') }}"

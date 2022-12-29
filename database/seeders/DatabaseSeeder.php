@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             AboutSeeder::class,
             OurServiceSeeder::class,
             WhySeeder::class,
+            PracticingAreaSeeder::class,
+            AttorneysSeeder::class,
         ]);
     }
 }

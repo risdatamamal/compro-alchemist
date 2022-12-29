@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttorneyController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurServiceController;
+use App\Http\Controllers\PracticingAreaController;
 use App\Http\Controllers\WhyController;
 use Illuminate\Support\Facades\{Route, Auth};
 
@@ -63,4 +65,24 @@ Route::prefix('admin')
         Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('edit-client');
         Route::put('/client/edit/{id}', [ClientController::class, 'update'])->name('update-client');
         Route::delete('/client/{id}', [ClientController::class, 'destroy'])->name('delete-client');
+
+        // Update Practicing Area
+        Route::get('/practicing-area', [PracticingAreaController::class, 'index'])->name('practicing-area');
+        Route::put('/practicing-area/{id}', [PracticingAreaController::class, 'updatePracticingArea'])->name('update-practicing-area');
+        // CRUD List Practicing Area
+        Route::get('/practicing-area/create', [PracticingAreaController::class, 'create'])->name('create-practicing-area');
+        Route::post('/practicing-area/create', [PracticingAreaController::class, 'store'])->name('store-practicing-area');
+        Route::get('/practicing-area/edit/{id}', [PracticingAreaController::class, 'edit'])->name('edit-practicing-area');
+        Route::put('/practicing-area/edit/{id}', [PracticingAreaController::class, 'updateListPracticingArea'])->name('update-list-practicing-area');
+        Route::delete('/practicing-area/{id}', [PracticingAreaController::class, 'destroy'])->name('delete-practicing-area');
+
+        // Update Attorney
+        Route::get('/attorney', [AttorneyController::class, 'index'])->name('attorney');
+        Route::put('/attorney/{id}', [AttorneyController::class, 'updateAttorney'])->name('update-attorney');
+        // CRUD List Attorney
+        Route::get('/attorney/create', [AttorneyController::class, 'create'])->name('create-attorney');
+        Route::post('/attorney/create', [AttorneyController::class, 'store'])->name('store-attorney');
+        Route::get('/attorney/edit/{id}', [AttorneyController::class, 'edit'])->name('edit-attorney');
+        Route::put('/attorney/edit/{id}', [AttorneyController::class, 'updateListAttorney'])->name('update-list-attorney');
+        Route::delete('/attorney/{id}', [AttorneyController::class, 'destroy'])->name('delete-attorney');
     });

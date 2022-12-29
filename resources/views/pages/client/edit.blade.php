@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Icon</label>
+                                                <label>Image</label>
                                                 <p>*Note: Dimension 1900x1200 pixel</p>
                                                 <img id="image-preview" class="d-block mb-2 img-fluid" src="{{ Storage::url($item->image_url) }}"
                                                     alt="Preview" />
