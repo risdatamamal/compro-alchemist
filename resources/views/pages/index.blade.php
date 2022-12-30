@@ -95,12 +95,12 @@
                 </div>
             </div>
             <div class="multiple-items pb_slide_v1">
-                @forelse ($listClient as $client)
+                @forelse ($listExperiences as $experience)
                     <div>
-                        <a href="{{ $client->link }}" class="link-block">
-                            <img src="{{ Storage::url($client->image_url) }}" alt="Clients" class="img-fluid">
+                        <a href="{{ $experience->link }}" class="link-block">
+                            <img src="{{ Storage::url($experience->image_url) }}" alt="Experiences" class="img-fluid">
                             <div class="slide-text">
-                                <h2>{{ $client->name }}</h2>
+                                <h2>{{ $experience->name }}</h2>
                                 <p>Read More</p>
                             </div>
                         </a>

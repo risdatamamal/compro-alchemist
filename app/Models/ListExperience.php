@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ListClient extends Model
+class ListExperience extends Model
 {
     use HasFactory;
 
-    protected $table = 'list_clients';
+    protected $table = 'list_experiences';
 
     protected $fillable = [
         'name',

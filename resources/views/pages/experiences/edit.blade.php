@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Edit List Client
+    Edit List Experience
 @endsection
 
 @section('content')
@@ -9,9 +9,9 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Client</h2>
+                <h2 class="dashboard-title">Experience</h2>
                 <p class="dashboard-subtitle">
-                    Edit "{{ $item->name }}" Client
+                    Edit "{{ $item->name }}" Experience
                 </p>
             </div>
             <div class="dashboard-content">

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create List Client
+    Create List Experience
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Client</h2>
-                <p class="dashboard-subtitle">Create New List Client</p>
+                <h2 class="dashboard-title">Experience</h2>
+                <p class="dashboard-subtitle">Create New List Experience</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -33,14 +33,14 @@
                                             <div class="form-group">
                                                 <label>Name</label>
                                                 <input type="text" class="form-control" name="name"
-                                                    placeholder="Name of your Client" required />
+                                                    placeholder="Name of your Experience" required />
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Link</label>
                                                 <input type="text" class="form-control" name="link"
-                                                    placeholder="https://www.yourclient.com" required />
+                                                    placeholder="https://www.yourexperience.com" required />
                                             </div>
                                         </div>
                                         <div class="col-md-12">

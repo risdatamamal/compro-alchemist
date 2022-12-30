@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
-use App\Models\ListClient;
+use App\Models\ListExperience;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +14,7 @@ class ExperienceController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListClient::query();
+            $query = ListExperience::query();
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
@@ -76,16 +76,16 @@ class ExperienceController extends Controller
     {
         $data = $request->all();
 
-        $data['image_url'] = $request->file('image_url')->store('assets/client', 'public');
+        $data['image_url'] = $request->file('image_url')->store('assets/experience', 'public');
 
-        ListClient::create($data);
+        ListExperience::create($data);
 
         return redirect()->route('experience');
     }
 
     public function edit($id)
     {
-        $item = ListClient::findOrFail($id);
+        $item = ListExperience::findOrFail($id);
 
         return view('pages.experiences.edit', [
             'item' => $item
@@ -95,12 +95,12 @@ class ExperienceController extends Controller
     public function updateListExperience(Request $request, $id)
     {
         $data = $request->all();
-        $item = ListClient::findOrFail($id);
+        $item = ListExperience::findOrFail($id);
 
         if ($request->file('image_url') == null) {
             $data['image_url'] = $item->image_url;
         } else if ($request->file('image_url') != null) {
-            $data['image_url'] = $request->file('image_url')->store('assets/client', 'public');
+            $data['image_url'] = $request->file('image_url')->store('assets/experience', 'public');
         }
 
         $item->update($data);
@@ -110,7 +110,7 @@ class ExperienceController extends Controller
 
     public function destroy($id)
     {
-        $item = ListClient::findorFail($id);
+        $item = ListExperience::findorFail($id);
         $item->delete();
 
         return redirect()->route('experience');

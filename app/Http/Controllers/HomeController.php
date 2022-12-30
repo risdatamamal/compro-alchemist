@@ -8,8 +8,7 @@ use App\Models\Contact;
 use App\Models\Experience;
 use App\Models\Header;
 use App\Models\ListAttorney;
-use App\Models\ListClient;
-use App\Models\ListOurService;
+use App\Models\ListExperience;
 use App\Models\ListPracticingArea;
 use App\Models\ListWhy;
 use App\Models\PracticingArea;
@@ -25,10 +24,9 @@ class HomeController extends Controller
             'header' => Header::where('id', 1)->first(),
             'about' => About::where('id', 1)->first(),
             'experience' => Experience::where('id', 1)->first(),
-            'listOurServices' => ListOurService::all(),
+            'listExperiences' => ListExperience::all(),
             'why' => Why::where('id', 1)->first(),
             'listWhy' => ListWhy::all(),
-            'listClient' => ListClient::all(),
             'practicingarea' => PracticingArea::where('id', 1)->first(),
             'listPracticingArea' => ListPracticingArea::all(),
             'attorneys' => Attorneys::where('id', 1)->first(),
