@@ -17,8 +17,7 @@ class AboutSeeder extends Seeder
         $data = [
             [
                 'title' => 'About Us',
-                'desc' => 'Description About',
-                'video_url' => 'https://www.youtube.com/embed/9jo51nJrO0k'
+                'desc' => 'Description About'
             ],
         ];
 

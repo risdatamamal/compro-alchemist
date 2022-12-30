@@ -32,10 +32,8 @@
                     <p>{!! $about->desc !!}</p>
                 </div>
                 <div class="col-lg-7">
-                    <div class="images">
-                        <iframe class="w-100" width="600" height="450" src="{{ $about->video_url }}"
-                            title="Video About Us" frameborder="10"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    <div class="images right">
+                        <img class="img1 img-fluid" src="{{ $about->image_url == null ? 'assets/images/600x450_img_2.jpg' : 'storage/' . $about->image_url }}" alt="Images 1">
                     </div>
                 </div>
 

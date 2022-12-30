@@ -49,12 +49,15 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Video Source Embed</label>
-                                                <input type="text"
-                                                    class="form-control @error('video_url') is-invalid @enderror" name="video_url"
-                                                    required placeholder="https://www.youtube.com/embed/xxxxxxx" value="{{ $about->video_url }}" />
-                                                @error('video_url')
+                                            <div class="form-group mb-4">
+                                                <label>Image</label>
+                                                <p>*Note: Dimension 600x450 pixel</p>
+                                                <img id="image-preview" class="d-block mb-2 img-fluid"
+                                                    src="{{ $about->image_url == null ? '/assets/images/600x450_img_2.jpg' : Storage::url($about->image_url)  }}" alt="Preview" />
+                                                <input type="file"
+                                                    class="form-control @error('image_url') is-invalid @enderror"
+                                                    id="image_url" name="image_url" onchange="previewImage()" />
+                                                @error('image_url')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -88,4 +91,15 @@
             $('.select2').select2();
         });
     </script>
+    @push('addon-script')
+    <script>
+        function previewImage() {
+            const imageUrl = document.querySelector('#image_url')
+            const imagePreview = document.querySelector('#image-preview')
+            const imageFile = new FileReader()
+            imageFile.readAsDataURL(imageUrl.files[0])
+            imageFile.onload = (e) => (imagePreview.src = e.target.result)
+        }
+    </script>
+@endpush
 @endpush

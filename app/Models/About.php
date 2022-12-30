@@ -14,7 +14,7 @@ class About extends Model
     protected $fillable = [
         'title',
         'desc',
-        'video_url'
+        'image_url'
     ];
 
     protected $dates = ['created_at'];

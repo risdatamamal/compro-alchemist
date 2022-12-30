@@ -17,7 +17,7 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->longText('desc')->nullable();
-            $table->string('video_url')->nullable();
+            $table->string('image_url')->nullable();
 
             $table->timestamps();
         });
