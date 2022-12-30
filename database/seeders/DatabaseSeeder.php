@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             WhySeeder::class,
             PracticingAreaSeeder::class,
             AttorneysSeeder::class,
+            ContactsSeeder::class,
         ]);
     }
 }

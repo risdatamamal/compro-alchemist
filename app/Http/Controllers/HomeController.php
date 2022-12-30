@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Attorneys;
+use App\Models\Contact;
 use App\Models\Header;
 use App\Models\ListAttorney;
 use App\Models\ListClient;
@@ -31,6 +32,7 @@ class HomeController extends Controller
             'listPracticingArea' => ListPracticingArea::all(),
             'attorneys' => Attorneys::where('id', 1)->first(),
             'listAttorney' => ListAttorney::all(),
+            'contacts' => Contact::where('id', 1)->first(),
         ];
 
         return view('pages.index', $data);

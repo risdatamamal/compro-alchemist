@@ -10,7 +10,7 @@
     <meta name="description" content="Alchemist Law">
     <meta name="keywords"
         content="alchemist law">
-    <link rel="shortcut icon" href="/assets/images/admin.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/images/logo-1.png" type="image/x-icon" />
 
 
     {{-- STYLE --}}

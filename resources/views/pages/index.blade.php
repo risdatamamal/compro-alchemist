@@ -43,6 +43,7 @@
         </div>
     </section>
 
+    {{-- REVISI MENJADI OURSERVICE --}}
     <section class="pb_section bg-light" data-section="why-us" id="section-why-us">
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
@@ -84,6 +85,7 @@
         </div>
     </section>
 
+    {{-- REVISI INI DIHAPUS TAMPILAN MENGGUNAKAN CLIENT --}}
     <section class="pb_section" data-section="experiences" id="section-experiences">
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
@@ -116,6 +118,7 @@
         </div>
     </section>
 
+    {{-- REVISI DIGANTI MENJADI EXPERIENCE --}}
     <section class="pb_section" data-section="clients" id="section-clients">
         <div class="multiple-items pb_slide_v1">
             @forelse ($listClient as $client)
@@ -206,10 +209,8 @@
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
                 <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">Get In Touch</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
+                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $contacts->title }}</h2>
+                    <p>{!! $contacts->desc !!}</p>
                 </div>
             </div>
             <div class="row">
@@ -220,8 +221,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="mt-0 pb_font-17">Email</h3>
-                            <a class="text-dark" href="mailto:probootstrap@gmail.com">
-                                <p class="pb_font-14">probootstrap@gmail.com</p>
+                            <a class="text-dark" href="mailto:{{ $contacts->email }}">
+                                <p class="pb_font-14">{{ $contacts->email }}</p>
                             </a>
                         </div>
                     </div>
@@ -233,8 +234,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="mt-0 pb_font-17">Phone</h3>
-                            <a class="text-dark" href="tel:+3097613829921">
-                                <p class="pb_font-14">+30 976 1382 9921</p>
+                            <a class="text-dark" href="tel:+{{ $contacts->phone }}">
+                                <p class="pb_font-14">+{{ $contacts->phone }}</p>
                             </a>
                         </div>
                     </div>
@@ -246,8 +247,8 @@
                         </div>
                         <div class="media-body">
                             <h3 class="mt-0 pb_font-17">Whatsapp</h3>
-                            <a class="text-dark" href="https://wa.me/+3097613829922">
-                                <p class="pb_font-14">+30 976 1382 9922</p>
+                            <a class="text-dark" href="https://wa.me/+{{ $contacts->whatsapp }}">
+                                <p class="pb_font-14">+{{ $contacts->whatsapp }}</p>
                             </a>
                         </div>
                     </div>
@@ -259,32 +260,10 @@
                         </div>
                         <div class="media-body">
                             <h3 class="mt-0 pb_font-17">Address</h3>
-                            <p class="pb_font-14">San Francisco, CA 4th Floor8 Lower San Francisco street, M1 50F</p>
+                            <p class="pb_font-14">{!! $contacts->address !!}</p>
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-md-4">
-                    <ul class="pb_contact_details_v1">
-                        <li>
-                            <span class="text-uppercase">Email</span>
-                            probootstrap@gmail.com
-                        </li>
-                        <li>
-                            <span class="text-uppercase">Phone</span>
-                            +30 976 1382 9921
-                        </li>
-                        <li>
-                            <span class="text-uppercase">Whatsapp</span>
-                            +30 976 1382 9922
-                        </li>
-                        <li>
-                            <span class="text-uppercase">Address</span>
-                            San Francisco, CA <br>
-                            4th Floor8 Lower <br>
-                            San Francisco street, M1 50F
-                        </li>
-                    </ul>
-                </div> --}}
             </div>
 
         </div>

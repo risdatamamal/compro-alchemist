@@ -2223,9 +2223,9 @@ a {
 }
 
 .page-dashboard .list-group-item.active {
-  background: -webkit-gradient(linear, right top, left top, color-stop(2%, rgba(255, 113, 88, 0.32)), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(270deg, rgba(255, 113, 88, 0.32) 2%, rgba(255, 255, 255, 0) 100%);
-  border-right: 4px solid #ff7158;
+  background: -webkit-gradient(linear, right top, left top, color-stop(2%, rgba(88, 91, 255, 0.32)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(270deg, rgba(88, 127, 255, 0.32) 2%, rgba(255, 255, 255, 0) 100%);
+  border-right: 4px solid #1D82FF;
   color: #0c0d36;
 }
 
@@ -2314,7 +2314,7 @@ a {
 
 .page-dashboard .section-content .btn-success {
   border-radius: 24px;
-  background-color: #f39189;
+  background-color: #1D82FF;
   border: none;
 }
 

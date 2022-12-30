@@ -12,7 +12,7 @@
 
     {{-- STYLE --}}
     @stack('prepend-style')
-    <link rel="shortcut icon" href="/assets/images/admin.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/images/logo-1.png" type="image/x-icon" />
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/assets/fonts/ionicons/css/ionicons.min.css">
@@ -36,7 +36,7 @@
             <!-- Sidebar -->
             <div class="border-right" id="sidebar-wrapper">
                 <div class="sidebar-heading text-center">
-                    <img src="/assets/images/admin.png" alt="" class="my-4" style="max-width: 150px" />
+                    <img src="/assets/images/logo-1.png" alt="" class="my-4" style="max-width: 150px" />
                 </div>
                 <div class="list-group list-group-flush">
                     <a href="{{ route('dashboard') }}"
@@ -59,7 +59,8 @@
                         Areas</a>
                     <a href="{{ route('attorney') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorneys</a>
-                    <a href="#" class="list-group-item list-group-item-action">Contact</a>
+                    <a href="{{ route('contact') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/contact*') ? 'active' : '' }}">Contact</a>
                     <a href="#" class="list-group-item list-group-item-action">Social Media</a>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

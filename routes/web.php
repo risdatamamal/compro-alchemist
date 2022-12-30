@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttorneyController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
@@ -85,4 +86,8 @@ Route::prefix('admin')
         Route::get('/attorney/edit/{id}', [AttorneyController::class, 'edit'])->name('edit-attorney');
         Route::put('/attorney/edit/{id}', [AttorneyController::class, 'updateListAttorney'])->name('update-list-attorney');
         Route::delete('/attorney/{id}', [AttorneyController::class, 'destroy'])->name('delete-attorney');
+
+        // Update Contact
+        Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+        Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update-contact');
     });
