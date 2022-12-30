@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-12 mx-auto my-auto">
                                 <div class="text-center">
-                                    <img src="/assets/images/admin.png" alt="Logo" class="my-4"
+                                    <img src="/assets/images/logo-1.png" alt="Logo" class="my-4"
                                         style="max-width: 150px" />
                                 </div>
                             </div>
