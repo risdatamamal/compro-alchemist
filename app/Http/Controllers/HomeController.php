@@ -13,6 +13,7 @@ use App\Models\ListPracticingArea;
 use App\Models\ListWhy;
 use App\Models\OurService;
 use App\Models\PracticingArea;
+use App\Models\SocialMedia;
 use App\Models\Why;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class HomeController extends Controller
             'attorneys' => Attorneys::where('id', 1)->first(),
             'listAttorney' => ListAttorney::all(),
             'contacts' => Contact::where('id', 1)->first(),
+            'socialMedias' => SocialMedia::where('id', 1)->first(),
         ];
 
         return view('pages.index', $data);

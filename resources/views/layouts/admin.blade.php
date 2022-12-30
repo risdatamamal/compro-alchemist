@@ -61,7 +61,7 @@
                         class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorneys</a>
                     <a href="{{ route('contact') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/contact*') ? 'active' : '' }}">Contact</a>
-                    <a href="#" class="list-group-item list-group-item-action">Social Media</a>
+                    <a href="{{ route('social-media') }}" class="list-group-item list-group-item-action {{ request()->is('admin/social-media*') ? 'active' : '' }}">Social Media</a>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="list-group-item list-group-item-action">Sign Out</a>

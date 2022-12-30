@@ -4,22 +4,22 @@
             <div class="col">
                 <ul class="list-inline">
                     <li class="list-inline-item">
-                        <a href="#" class="p-2">
+                        <a href="{{ $socialMedias->facebook }}" class="p-2">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="p-2">
+                        <a href="{{ $socialMedias->twitter }}" class="p-2">
                             <i class="fa fa-twitter"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="p-2">
+                        <a href="{{ $socialMedias->linkedin }}" class="p-2">
                             <i class="fa fa-linkedin"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#" class="p-2">
+                        <a href="{{ $socialMedias->instagram }}" class="p-2">
                             <i class="fa fa-instagram"></i>
                         </a>
                     </li>

@@ -10,6 +10,7 @@ use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurServiceController;
 use App\Http\Controllers\PracticingAreaController;
+use App\Http\Controllers\SocialMediaController;
 use App\Http\Controllers\WhyController;
 use Illuminate\Support\Facades\{Route, Auth};
 
@@ -90,4 +91,8 @@ Route::prefix('admin')
         // Update Contact
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
         Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update-contact');
+
+        // Update Social Media
+        Route::get('/social-media', [SocialMediaController::class, 'index'])->name('social-media');
+        Route::put('/social-media/{id}', [SocialMediaController::class, 'update'])->name('update-social-media');
     });
