@@ -24,7 +24,6 @@
                 <li class="nav-item"><a class="nav-link" href="#section-about">@lang('navbar.about')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-why-us">@lang('navbar.why')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-experiences">@lang('navbar.experience')</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-clients">@lang('navbar.client')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-practicing-areas">@lang('navbar.practicing_areas')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-attorneys">@lang('navbar.attorneys')</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-contact">@lang('navbar.contact')</a></li>

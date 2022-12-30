@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Update Our Service
+    Update Experience
 @endsection
 
 @section('content')
@@ -9,27 +9,37 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Our Service</h2>
+                <h2 class="dashboard-title">Experience</h2>
                 <p class="dashboard-subtitle">
-                    Update Our Service Content
+                    Update Experience Content
                 </p>
             </div>
             <div class="dashboard-content">
                 <div class="row mb-5">
-                    <div class="col-12">
-                        <form action="{{ route('update-our-service', $service->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="card">
-                                <div class="card-body">
+                    <div class="col-md-12">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('update-experience', $experience->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Title</label>
                                                 <input type="text"
                                                     class="form-control @error('title') is-invalid @enderror" name="title"
-                                                    required placeholder="Title on header" value="{{ $service->title }}" />
+                                                    required placeholder="Title on header"
+                                                    value="{{ $experience->title }}" />
                                                 @error('title')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -41,7 +51,7 @@
                                             <div class="form-group">
                                                 <label>Description</label>
                                                 <textarea type="text" class="form-control @error('desc') is-invalid @enderror" id="desc" name="desc"
-                                                    value="{{ old('desc') }}" required>{!! $service->desc !!}</textarea>
+                                                    value="{{ old('desc') }}" required>{!! $experience->desc !!}</textarea>
                                                 @error('desc')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -49,34 +59,34 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col text-right">
-                                                <button type="submit" class="btn btn-success px-5">
-                                                    Save Now
-                                                </button>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="submit" class="btn btn-success px-5">
+                                                Save Now
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('create-our-service') }}" class="btn btn-primary mb-3 rounded-pill">
-                                    + Create New Our Service
+                                <a href="{{ route('create-experience') }}" class="btn btn-primary mb-3 rounded-pill">
+                                    + Create New Experience
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Title</th>
-                                                <th>Desc</th>
-                                                <th>Icon</th>
+                                                <th>Name</th>
+                                                <th>Link</th>
+                                                <th>Image</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -115,16 +125,16 @@
                     name: 'id'
                 },
                 {
-                    data: 'title',
-                    name: 'title'
+                    data: 'name',
+                    name: 'name'
                 },
                 {
-                    data: 'desc',
-                    name: 'desc'
+                    data: 'link',
+                    name: 'link'
                 },
                 {
-                    data: 'icon_url',
-                    name: 'icon_url'
+                    data: 'image_url',
+                    name: 'image_url'
                 },
                 {
                     data: 'action',

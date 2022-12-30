@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Attorneys;
 use App\Models\Contact;
+use App\Models\Experience;
 use App\Models\Header;
 use App\Models\ListAttorney;
 use App\Models\ListClient;
 use App\Models\ListOurService;
 use App\Models\ListPracticingArea;
 use App\Models\ListWhy;
-use App\Models\OurService;
 use App\Models\PracticingArea;
 use App\Models\SocialMedia;
 use App\Models\Why;
@@ -24,7 +24,7 @@ class HomeController extends Controller
         $data = [
             'header' => Header::where('id', 1)->first(),
             'about' => About::where('id', 1)->first(),
-            'service' => OurService::where('id', 1)->first(),
+            'experience' => Experience::where('id', 1)->first(),
             'listOurServices' => ListOurService::all(),
             'why' => Why::where('id', 1)->first(),
             'listWhy' => ListWhy::all(),

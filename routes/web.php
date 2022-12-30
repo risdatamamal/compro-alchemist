@@ -6,6 +6,7 @@ use App\Http\Controllers\AttorneyController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurServiceController;
@@ -40,16 +41,6 @@ Route::prefix('admin')
         Route::get('/about', [AboutController::class, 'index'])->name('about');
         Route::put('/about/{id}', [AboutController::class, 'update'])->name('update-about');
 
-        // Update Our Service
-        Route::get('/our-service', [OurServiceController::class, 'index'])->name('our-service');
-        Route::put('/our-service/{id}', [OurServiceController::class, 'updateOurService'])->name('update-our-service');
-        // CRUD List Our Service
-        Route::get('/our-service/create', [OurServiceController::class, 'create'])->name('create-our-service');
-        Route::post('/our-service/create', [OurServiceController::class, 'store'])->name('store-our-service');
-        Route::get('/our-service/edit/{id}', [OurServiceController::class, 'edit'])->name('edit-our-service');
-        Route::put('/our-service/edit/{id}', [OurServiceController::class, 'updateListOurService'])->name('update-list-our-service');
-        Route::delete('/our-service/{id}', [OurServiceController::class, 'destroy'])->name('delete-our-service');
-
         // Update Why
         Route::get('/why', [WhyController::class, 'index'])->name('why');
         Route::put('/why/{id}', [WhyController::class, 'updateWhy'])->name('update-why');
@@ -60,13 +51,17 @@ Route::prefix('admin')
         Route::put('/why/edit/{id}', [WhyController::class, 'updateListWhy'])->name('update-list-why');
         Route::delete('/why/{id}', [WhyController::class, 'destroy'])->name('delete-why');
 
-        // CRUD List Client
-        Route::get('/client', [ClientController::class, 'index'])->name('client');
-        Route::get('/client/create', [ClientController::class, 'create'])->name('create-client');
-        Route::post('/client/create', [ClientController::class, 'store'])->name('store-client');
-        Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('edit-client');
-        Route::put('/client/edit/{id}', [ClientController::class, 'update'])->name('update-client');
-        Route::delete('/client/{id}', [ClientController::class, 'destroy'])->name('delete-client');
+
+        // Update Experience
+        Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
+        Route::put('/experience/{id}', [ExperienceController::class, 'updateExperience'])->name('update-experience');
+        // CRUD List Experience
+        Route::get('/experience/create', [ExperienceController::class, 'create'])->name('create-experience');
+        Route::post('/experience/create', [ExperienceController::class, 'store'])->name('store-experience');
+        Route::get('/experience/edit/{id}', [ExperienceController::class, 'edit'])->name('edit-experience');
+        Route::put('/experience/edit/{id}', [ExperienceController::class, 'updateListExperience'])->name('update-list-experience');
+        Route::delete('/experience/{id}', [ExperienceController::class, 'destroy'])->name('delete-experience');
+
 
         // Update Practicing Area
         Route::get('/practicing-area', [PracticingAreaController::class, 'index'])->name('practicing-area');

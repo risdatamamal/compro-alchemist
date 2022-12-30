@@ -33,7 +33,9 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="images right">
-                        <img class="img1 img-fluid" src="{{ $about->image_url == null ? 'assets/images/600x450_img_2.jpg' : 'storage/' . $about->image_url }}" alt="Images 1">
+                        <img class="img1 img-fluid"
+                            src="{{ $about->image_url == null ? 'assets/images/600x450_img_2.jpg' : 'storage/' . $about->image_url }}"
+                            alt="Images 1">
                     </div>
                 </div>
 
@@ -83,57 +85,32 @@
         </div>
     </section>
 
-    {{-- REVISI INI DIHAPUS TAMPILAN MENGGUNAKAN CLIENT --}}
+    {{-- REVISI INI OUR SERVICE + CLIENT MENJADI EXPERIENCE --}}
     <section class="pb_section" data-section="experiences" id="section-experiences">
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
                 <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $service->title }}</h2>
-                    <p>{!! $service->desc !!}</p>
+                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $experience->title }}</h2>
+                    <p>{!! $experience->desc !!}</p>
                 </div>
             </div>
-            <div class="row">
-                {{-- Forelse --}}
-                @forelse ($listOurServices as $ourservice)
-                    <div class="col-lg">
-                        <div class="media pb_media_v1 mb-5">
-                            <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary">
-                                <img src="{{ Storage::url($ourservice->icon_url) }}" alt="Icon" class="mx-auto mt-2"
-                                    height="64px" width="64px" />
+            <div class="multiple-items pb_slide_v1">
+                @forelse ($listClient as $client)
+                    <div>
+                        <a href="{{ $client->link }}" class="link-block">
+                            <img src="{{ Storage::url($client->image_url) }}" alt="Clients" class="img-fluid">
+                            <div class="slide-text">
+                                <h2>{{ $client->name }}</h2>
+                                <p>Read More</p>
                             </div>
-                            <div class="media-body">
-                                <h3 class="mt-0 pb_font-17">{{ $ourservice->title }}</h3>
-                                <p class="pb_font-14">{!! $ourservice->desc !!}</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 @empty
                     <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                        No List Our Service Found
+                        No List Experience Found
                     </div>
                 @endforelse
             </div>
-        </div>
-    </section>
-
-    {{-- REVISI DIGANTI MENJADI EXPERIENCE --}}
-    <section class="pb_section" data-section="clients" id="section-clients">
-        <div class="multiple-items pb_slide_v1">
-            @forelse ($listClient as $client)
-                <div>
-                    <a href="{{ $client->link }}" class="link-block">
-                        <img src="{{ Storage::url($client->image_url) }}" alt="Clients" class="img-fluid">
-                        <div class="slide-text">
-                            <h2>{{ $client->name }}</h2>
-                            <p>Read More</p>
-                        </div>
-                    </a>
-                </div>
-            @empty
-                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                    No List Client Found
-                </div>
-            @endforelse
         </div>
     </section>
 

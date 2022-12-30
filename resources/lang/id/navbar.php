@@ -3,9 +3,8 @@ return [
     "home" => "Halaman Utama",
     "about" => "Tentang",
     "why" => "Mengapa",
-    "client" => "Klien",
+    "experience" => "Pengalaman",
     "practicing_areas" => "Area Praktek",
     "attorneys" => "Pengacara",
-    "experience" => "Pengalaman",
     "contact" => "Kontak",
 ];

@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ListOurService extends Model
+class Experience extends Model
 {
     use HasFactory;
 
-    protected $table = 'list_our_services';
+    protected $table = 'experiences';
 
     protected $fillable = [
         'title',
-        'desc',
-        'icon_url'
+        'desc'
     ];
 
     protected $dates = ['created_at'];

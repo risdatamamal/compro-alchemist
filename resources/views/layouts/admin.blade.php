@@ -49,11 +49,8 @@
                         class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
                     <a href="{{ route('why') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
-                    <a href="{{ route('our-service') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our
-                        Services</a>
-                    <a href="{{ route('client') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/client*') ? 'active' : '' }}">Clients</a>
+                    <a href="{{ route('experience') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/experience*') ? 'active' : '' }}">Experiences</a>
                     <a href="{{ route('practicing-area') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/practicing-area*') ? 'active' : '' }}">Practicing
                         Areas</a>

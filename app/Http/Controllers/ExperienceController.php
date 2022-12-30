@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ListOurService;
-use App\Models\OurService;
+use App\Models\Experience;
+use App\Models\ListClient;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables as DataTables;
 
-class OurServiceController extends Controller
+class ExperienceController extends Controller
 {
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListOurService::query();
+            $query = ListClient::query();
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
@@ -29,10 +29,10 @@ class OurServiceController extends Controller
                                         Action
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('edit-our-service', $item->id) . '">
+                                    <a class="dropdown-item" href="' . route('edit-experience', $item->id) . '">
                                         Edit
                                     </a>
-                                    <form action="' . route('delete-our-service', $item->id) . '" method="POST">
+                                    <form action="' . route('delete-experience', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Delete
@@ -42,78 +42,77 @@ class OurServiceController extends Controller
                             </div>
                     </div>';
                 })
-                ->editColumn('icon_url', function ($item) {
-                    return $item->icon_url ? '<img src="' . Storage::url($item->icon_url) . '" style="max-height: 40px;"/>' : '';
+                ->editColumn('image_url', function ($item) {
+                    return $item->image_url ? '<img src="' . Storage::url($item->image_url) . '" style="max-height: 40px;"/>' : '';
                 })
-                ->rawColumns(['action', 'icon_url'])
+                ->rawColumns(['action', 'image_url'])
                 ->make();
         }
 
-        $service = OurService::where('id', 1)->first();
+        $experience = Experience::where('id', 1)->first();
 
-        return view('pages.our-services.index', [
-            'service' => $service
+        return view('pages.experiences.index', [
+            'experience' => $experience
         ]);
+    }
+
+    // Update Title and Desc Experience
+    public function updateExperience(Request $request, $id)
+    {
+        $data = $request->all();
+        $item = Experience::findOrFail($id);
+
+        $item->update($data);
+
+        return redirect()->route('experience');
     }
 
     public function create()
     {
-        return view('pages.our-services.create');
+        return view('pages.experiences.create');
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
 
-        $data['icon_url'] = $request->file('icon_url')->store('assets/ourservice', 'public');
+        $data['image_url'] = $request->file('image_url')->store('assets/client', 'public');
 
-        ListOurService::create($data);
+        ListClient::create($data);
 
-        return redirect()->route('our-service');
+        return redirect()->route('experience');
     }
 
     public function edit($id)
     {
-        $item = ListOurService::findOrFail($id);
+        $item = ListClient::findOrFail($id);
 
-        return view('pages.our-services.edit', [
+        return view('pages.experiences.edit', [
             'item' => $item
         ]);
     }
 
-    // Update List Our Service
-    public function updateListOurService(Request $request, $id)
+    public function updateListExperience(Request $request, $id)
     {
         $data = $request->all();
-        $item = ListOurService::findOrFail($id);
+        $item = ListClient::findOrFail($id);
 
-        if ($request->file('icon_url') == null) {
-            $data['icon_url'] = $item->icon_url;
-        } else if ($request->file('icon_url') != null) {
-            $data['icon_url'] = $request->file('icon_url')->store('assets/ourservice', 'public');
+        if ($request->file('image_url') == null) {
+            $data['image_url'] = $item->image_url;
+        } else if ($request->file('image_url') != null) {
+            $data['image_url'] = $request->file('image_url')->store('assets/client', 'public');
         }
 
         $item->update($data);
 
-        return redirect()->route('our-service');
-    }
-
-    // Update Title and Desc Our Service
-    public function updateOurService(Request $request, $id)
-    {
-        $data = $request->all();
-        $item = OurService::findOrFail($id);
-
-        $item->update($data);
-
-        return redirect()->route('our-service');
+        return redirect()->route('experience');
     }
 
     public function destroy($id)
     {
-        $item = ListOurService::findorFail($id);
+        $item = ListClient::findorFail($id);
         $item->delete();
 
-        return redirect()->route('our-service');
+        return redirect()->route('experience');
     }
 }
