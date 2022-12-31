@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             HeaderSeeder::class,
             AboutSeeder::class,
             ExperiencesSeeder::class,
-            WhySeeder::class,
+            OurServiceSeeder::class,
             PracticingAreaSeeder::class,
             AttorneysSeeder::class,
             ContactsSeeder::class,

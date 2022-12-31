@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create List Why
+    Create List Our Service
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Why</h2>
-                <p class="dashboard-subtitle">Create New List Why</p>
+                <h2 class="dashboard-title">Our Service</h2>
+                <p class="dashboard-subtitle">Create New List Our Service</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -26,7 +26,7 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('store-why') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('store-our-service') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">

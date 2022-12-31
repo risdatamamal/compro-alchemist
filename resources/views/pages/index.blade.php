@@ -43,39 +43,38 @@
         </div>
     </section>
 
-    {{-- REVISI MENJADI OURSERVICE --}}
-    <section class="pb_section bg-light" data-section="why-us" id="section-why-us">
+    <section class="pb_section bg-light" data-section="our-service" id="section-our-service">
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
                 <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $why->title }}</h2>
-                    <p>{!! $why->desc !!}</p>
+                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $ourService->title }}</h2>
+                    <p>{!! $ourService->desc !!}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-7">
                     <div class="images right">
                         <img class="img1 img-fluid"
-                            src="{{ $why->image_url == null ? 'assets/images/600x450_img_2.jpg' : 'storage/' . $why->image_url }}"
-                            alt="Images Why">
+                            src="{{ $ourService->image_url == null ? 'assets/images/600x450_img_2.jpg' : 'storage/' . $ourService->image_url }}"
+                            alt="Images Our Service">
                     </div>
                 </div>
                 <div class="col-lg-5 pl-md-5 pl-sm-0">
                     <div id="exampleAccordion" class="pb_accordion" data-children=".item">
-                        @forelse ($listWhy as $listwhy)
+                        @forelse ($listOurService as $ourService)
                             <div class="item">
                                 <a data-toggle="collapse" data-parent="#exampleAccordion"
-                                    href="#exampleAccordion{{ $listwhy->id }}" aria-expanded="true"
-                                    aria-controls="exampleAccordion{{ $listwhy->id }}"
-                                    class="pb_font-18">{{ $listwhy->title }}</a>
-                                <div id="exampleAccordion{{ $listwhy->id }}"
-                                    class="collapse {{ $listwhy->id == 1 ? 'show' : '' }}" role="tabpanel">
-                                    <p>{!! $listwhy->desc !!}</p>
+                                    href="#exampleAccordion{{ $ourService->id }}" aria-expanded="true"
+                                    aria-controls="exampleAccordion{{ $ourService->id }}"
+                                    class="pb_font-18">{{ $ourService->title }}</a>
+                                <div id="exampleAccordion{{ $ourService->id }}"
+                                    class="collapse {{ $ourService->id == 1 ? 'show' : '' }}" role="tabpanel">
+                                    <p>{!! $ourService->desc !!}</p>
                                 </div>
                             </div>
                         @empty
                             <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                                No List Why Found
+                                No List Our Service Found
                             </div>
                         @endforelse
                     </div>
@@ -85,7 +84,6 @@
         </div>
     </section>
 
-    {{-- REVISI INI OUR SERVICE + CLIENT MENJADI EXPERIENCE --}}
     <section class="pb_section" data-section="experiences" id="section-experiences">
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
@@ -243,5 +241,4 @@
 
         </div>
     </section>
-    <!-- END section -->
 @endsection

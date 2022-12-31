@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ListWhy;
-use App\Models\Why;
+use App\Models\ListOurService;
+use App\Models\OurService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables as DataTables;
 
-class WhyController extends Controller
+class OurServiceController extends Controller
 {
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListWhy::query();
+            $query = ListOurService::query();
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
@@ -27,10 +27,10 @@ class WhyController extends Controller
                                         Action
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('edit-why', $item->id) . '">
+                                    <a class="dropdown-item" href="' . route('edit-our-service', $item->id) . '">
                                         Edit
                                     </a>
-                                    <form action="' . route('delete-why', $item->id) . '" method="POST">
+                                    <form action="' . route('delete-our-service', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Delete
@@ -47,60 +47,60 @@ class WhyController extends Controller
                 ->make();
         }
 
-        $why = Why::where('id', 1)->first();
+        $ourService = OurService::where('id', 1)->first();
 
-        return view('pages.why.index', [
-            'why' => $why
+        return view('pages.our-services.index', [
+            'ourService' => $ourService
         ]);
     }
 
     public function create()
     {
-        return view('pages.why.create');
+        return view('pages.our-services.create');
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
 
-        ListWhy::create($data);
+        ListOurService::create($data);
 
-        return redirect()->route('why');
+        return redirect()->route('our-service');
     }
 
     public function edit($id)
     {
-        $item = ListWhy::findOrFail($id);
+        $item = ListOurService::findOrFail($id);
 
-        return view('pages.why.edit', [
+        return view('pages.our-services.edit', [
             'item' => $item
         ]);
     }
 
-    // Update List Why
-    public function updateListWhy(Request $request, $id)
+    // Update List Our Service
+    public function updateListOurService(Request $request, $id)
     {
         $data = $request->all();
-        $item = ListWhy::findOrFail($id);
+        $item = ListOurService::findOrFail($id);
 
         $item->update($data);
 
-        return redirect()->route('why');
+        return redirect()->route('our-service');
     }
 
     public function destroy($id)
     {
-        $item = ListWhy::findorFail($id);
+        $item = ListOurService::findorFail($id);
         $item->delete();
 
-        return redirect()->route('why');
+        return redirect()->route('our-service');
     }
 
-    // Update Title, Desc and Image Why
-    public function updateWhy(Request $request, $id)
+    // Update Title, Desc and Image Our Service
+    public function updateOurService(Request $request, $id)
     {
         $data = $request->all();
-        $item = Why::findOrFail($id);
+        $item = OurService::findOrFail($id);
 
         if ($request->title) {
             $data['title'] = $request->title;
@@ -117,11 +117,11 @@ class WhyController extends Controller
         if ($request->file('image_url') == null) {
             $data['image_url'] = $item->image_url;
         } else if ($request->file('image_url') != null) {
-            $data['image_url'] = $request->file('image_url')->store('assets/why', 'public');
+            $data['image_url'] = $request->file('image_url')->store('assets/our-service', 'public');
         }
 
         $item->update($data);
 
-        return redirect()->route('why');
+        return redirect()->route('our-service');
     }
 }

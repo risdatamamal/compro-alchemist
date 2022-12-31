@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Edit List Why
+    Edit List Our Service
 @endsection
 
 @section('content')
@@ -9,9 +9,9 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Category</h2>
+                <h2 class="dashboard-title">Our Service</h2>
                 <p class="dashboard-subtitle">
-                    Edit "{{ $item->name }}" Category
+                    Edit "{{ $item->title }}" Our Service
                 </p>
             </div>
             <div class="dashboard-content">
@@ -26,7 +26,7 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('update-list-why', $item->id) }}" method="post"
+                        <form action="{{ route('update-list-our-service', $item->id) }}" method="post"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf

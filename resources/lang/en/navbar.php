@@ -2,7 +2,7 @@
 return [
     "home" => "Home",
     "about" => "About",
-    "why" => "Why",
+    "our_service" => "Our Service",
     "experience" => "Experience",
     "practicing_areas" => "Practicing Areas",
     "attorneys" => "Attorneys",

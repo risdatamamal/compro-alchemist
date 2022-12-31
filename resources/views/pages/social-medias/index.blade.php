@@ -17,18 +17,29 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('update-social-media', $socialMedia->id) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="card">
-                                <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('update-social-media', $socialMedia->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Facebook</label>
                                                 <input type="text"
-                                                    class="form-control @error('facebook') is-invalid @enderror" name="facebook"
-                                                    required placeholder="https://www.facebook.com/yourname" value="{{ $socialMedia->facebook }}" />
+                                                    class="form-control @error('facebook') is-invalid @enderror"
+                                                    name="facebook" required placeholder="https://www.facebook.com/yourname"
+                                                    value="{{ $socialMedia->facebook }}" />
                                                 @error('facebook')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -40,8 +51,9 @@
                                             <div class="form-group">
                                                 <label>Twitter</label>
                                                 <input type="text"
-                                                    class="form-control @error('twitter') is-invalid @enderror" name="twitter"
-                                                    required placeholder="https://twitter.com/yourname" value="{{ $socialMedia->twitter }}" />
+                                                    class="form-control @error('twitter') is-invalid @enderror"
+                                                    name="twitter" required placeholder="https://twitter.com/yourname"
+                                                    value="{{ $socialMedia->twitter }}" />
                                                 @error('twitter')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -53,8 +65,10 @@
                                             <div class="form-group">
                                                 <label>Linkedin</label>
                                                 <input type="text"
-                                                    class="form-control @error('linkedin') is-invalid @enderror" name="linkedin"
-                                                    required placeholder="https://www.linkedin.com/company/yourname" value="{{ $socialMedia->linkedin }}" />
+                                                    class="form-control @error('linkedin') is-invalid @enderror"
+                                                    name="linkedin" required
+                                                    placeholder="https://www.linkedin.com/company/yourname"
+                                                    value="{{ $socialMedia->linkedin }}" />
                                                 @error('linkedin')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -66,8 +80,10 @@
                                             <div class="form-group">
                                                 <label>Instagram</label>
                                                 <input type="text"
-                                                    class="form-control @error('instagram') is-invalid @enderror" name="instagram"
-                                                    required placeholder="https://www.instagram.com/yourname" value="{{ $socialMedia->instagram }}" />
+                                                    class="form-control @error('instagram') is-invalid @enderror"
+                                                    name="instagram" required
+                                                    placeholder="https://www.instagram.com/yourname"
+                                                    value="{{ $socialMedia->instagram }}" />
                                                 @error('instagram')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -75,17 +91,17 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col text-right">
-                                                <button type="submit" class="btn btn-success px-5">
-                                                    Save Now
-                                                </button>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="submit" class="btn btn-success px-5">
+                                                Save Now
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

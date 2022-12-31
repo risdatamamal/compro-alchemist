@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListWhysTable extends Migration
+class CreateListOurServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateListWhysTable extends Migration
      */
     public function up()
     {
-        Schema::create('list_whys', function (Blueprint $table) {
+        Schema::create('list_our_services', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
             $table->longText('desc')->nullable();
@@ -29,6 +29,6 @@ class CreateListWhysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list_whys');
+        Schema::dropIfExists('list_our_services');
     }
 }

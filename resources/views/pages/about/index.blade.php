@@ -17,11 +17,21 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('update-about', $about->id) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="card">
-                                <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('update-about', $about->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -53,7 +63,8 @@
                                                 <label>Image</label>
                                                 <p>*Note: Dimension 600x450 pixel</p>
                                                 <img id="image-preview" class="d-block mb-2 img-fluid"
-                                                    src="{{ $about->image_url == null ? '/assets/images/600x450_img_2.jpg' : Storage::url($about->image_url)  }}" alt="Preview" />
+                                                    src="{{ $about->image_url == null ? '/assets/images/600x450_img_2.jpg' : Storage::url($about->image_url) }}"
+                                                    alt="Preview" />
                                                 <input type="file"
                                                     class="form-control @error('image_url') is-invalid @enderror"
                                                     id="image_url" name="image_url" onchange="previewImage()" />
@@ -64,17 +75,17 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col text-right">
-                                                <button type="submit" class="btn btn-success px-5">
-                                                    Save Now
-                                                </button>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="submit" class="btn btn-success px-5">
+                                                Save Now
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,14 +103,14 @@
         });
     </script>
     @push('addon-script')
-    <script>
-        function previewImage() {
-            const imageUrl = document.querySelector('#image_url')
-            const imagePreview = document.querySelector('#image-preview')
-            const imageFile = new FileReader()
-            imageFile.readAsDataURL(imageUrl.files[0])
-            imageFile.onload = (e) => (imagePreview.src = e.target.result)
-        }
-    </script>
-@endpush
+        <script>
+            function previewImage() {
+                const imageUrl = document.querySelector('#image_url')
+                const imagePreview = document.querySelector('#image-preview')
+                const imageFile = new FileReader()
+                imageFile.readAsDataURL(imageUrl.files[0])
+                imageFile.onload = (e) => (imagePreview.src = e.target.result)
+            }
+        </script>
+    @endpush
 @endpush

@@ -32,19 +32,19 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Admin Name</label>
-                                            <input type="text" class="form-control" name="name" required />
+                                            <input type="text" class="form-control" name="name" placeholder="Enter your name" required />
                                           </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Admin Email</label>
-                                            <input type="email" class="form-control" name="email" required />
+                                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required />
                                           </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Admin Password</label>
-                                            <input type="password" class="form-control" name="password" required />
+                                            <input type="password" class="form-control" name="password" placeholder="Enter your password" required />
                                           </div>
                                     </div>
                                 </div>

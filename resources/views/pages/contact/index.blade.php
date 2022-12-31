@@ -17,11 +17,21 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('update-contact', $contact->id) }}" method="POST" enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="card">
-                                <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('update-contact', $contact->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -53,7 +63,8 @@
                                                 <label>Email</label>
                                                 <input type="text"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
-                                                    required placeholder="yourcompany@email.com" value="{{ $contact->email }}" />
+                                                    required placeholder="yourcompany@email.com"
+                                                    value="{{ $contact->email }}" />
                                                 @error('email')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -78,8 +89,9 @@
                                             <div class="form-group">
                                                 <label>Whatsapp</label>
                                                 <input type="text"
-                                                    class="form-control @error('whatsapp') is-invalid @enderror" name="whatsapp"
-                                                    required placeholder="62xxxxxxxxxx" value="{{ $contact->whatsapp }}" />
+                                                    class="form-control @error('whatsapp') is-invalid @enderror"
+                                                    name="whatsapp" required placeholder="62xxxxxxxxxx"
+                                                    value="{{ $contact->whatsapp }}" />
                                                 @error('whatsapp')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -99,17 +111,18 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col text-right">
-                                                <button type="submit" class="btn btn-success px-5">
-                                                    Save Now
-                                                </button>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="submit" class="btn btn-success px-5">
+                                                Save Now
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
+
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -17,12 +17,21 @@
             <div class="dashboard-content">
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('update-header', $header->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @method('PUT')
-                            @csrf
-                            <div class="card">
-                                <div class="card-body">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('update-header', $header->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @method('PUT')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -70,7 +79,8 @@
                                                 <label>Background</label>
                                                 <p>*Note: Dimension 1900x1200 pixel</p>
                                                 <img id="image-preview" class="d-block mb-2 img-fluid"
-                                                    src="{{ $header->bg_url == null ? '/assets/images/1900x1200_img_7.jpg' : Storage::url($header->bg_url)  }}" alt="Preview" />
+                                                    src="{{ $header->bg_url == null ? '/assets/images/1900x1200_img_7.jpg' : Storage::url($header->bg_url) }}"
+                                                    alt="Preview" />
                                                 <input type="file"
                                                     class="form-control @error('bg_url') is-invalid @enderror"
                                                     id="bg_url" name="bg_url" onchange="previewImage()" />
@@ -81,17 +91,18 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col text-right">
-                                                <button type="submit" class="btn btn-success px-5">
-                                                    Save Now
-                                                </button>
-                                            </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="submit" class="btn btn-success px-5">
+                                                Save Now
+                                            </button>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
+
                     </div>
                 </div>
             </div>

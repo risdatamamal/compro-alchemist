@@ -47,18 +47,20 @@
                         class="list-group-item list-group-item-action {{ request()->is('admin/header*') ? 'active' : '' }}">Header</a>
                     <a href="{{ route('about') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
-                    <a href="{{ route('why') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/why*') ? 'active' : '' }}">Why</a>
+                    <a href="{{ route('our-service') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Service</a>
                     <a href="{{ route('experience') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/experience*') ? 'active' : '' }}">Experiences</a>
+                        class="list-group-item list-group-item-action {{ request()->is('admin/experience*') ? 'active' : '' }}">Experience</a>
                     <a href="{{ route('practicing-area') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/practicing-area*') ? 'active' : '' }}">Practicing
-                        Areas</a>
+                        Area</a>
                     <a href="{{ route('attorney') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorneys</a>
+                        class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorney</a>
                     <a href="{{ route('contact') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/contact*') ? 'active' : '' }}">Contact</a>
-                    <a href="{{ route('social-media') }}" class="list-group-item list-group-item-action {{ request()->is('admin/social-media*') ? 'active' : '' }}">Social Media</a>
+                    <a href="{{ route('social-media') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/social-media*') ? 'active' : '' }}">Social
+                        Media</a>
                     <a href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                         class="list-group-item list-group-item-action">Sign Out</a>
@@ -70,7 +72,8 @@
             <div id="page-content-wrapper">
                 <nav class="navbar navbar-expand-lg navbar-light navbar-store fixed-top" data-aos="fade-down">
                     <div class="container-fluid">
-                        <button class="btn btn-secondary d-md-none mr-auto mr-2" id="menu-toggle">&laquo; Menu</button>
+                        <button class="btn btn-secondary d-md-none mr-auto mr-2" id="menu-toggle"><i
+                                class="fa fa-arrow-left"> Menu</i></button>
 
                         <!-- Membuat menu burger saat layarnya kecil -->
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
