@@ -59,6 +59,8 @@
                                                     onchange="previewImage()" />
                                             </div>
                                         </div>
+                                        <input type="text" class="form-control" id="id" name="attorney_id"
+                                            required value=1 hidden />
                                     </div>
                                     <div class="row">
                                         <div class="col text-right">

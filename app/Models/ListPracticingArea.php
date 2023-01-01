@@ -14,8 +14,16 @@ class ListPracticingArea extends Model
     protected $fillable = [
         'title',
         'desc',
-        'image_url'
+        'image_url',
+        'practicing_area_id'
     ];
+
+    protected $with = ['practicingArea'];
+
+    public function practicingArea()
+    {
+        return $this->belongsTo('App\Models\PracticingArea');
+    }
 
     protected $dates = ['created_at'];
 

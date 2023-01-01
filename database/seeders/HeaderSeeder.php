@@ -20,6 +20,11 @@ class HeaderSeeder extends Seeder
                 'subtitle' => 'Description Header',
                 'button' => 'FREE CONSULTATION'
             ],
+            [
+                'title' => 'Alchemist Muda Indonesia',
+                'subtitle' => 'Description Header',
+                'button' => 'FREE CONSULTATION'
+            ],
         ];
 
         foreach ($data as $key => $value) {

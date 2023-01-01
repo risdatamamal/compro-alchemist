@@ -19,6 +19,7 @@ class CreateListAttorneysTable extends Migration
             $table->string('position')->nullable();
             $table->longText('desc')->nullable();
             $table->string('image_url')->nullable();
+            $table->foreignId('attorney_id')->constrained('attorneys')->onDelete('cascade');
 
             $table->timestamps();
         });

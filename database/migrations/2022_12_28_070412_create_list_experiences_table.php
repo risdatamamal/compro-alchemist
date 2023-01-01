@@ -16,8 +16,9 @@ class CreateListExperiencesTable extends Migration
         Schema::create('list_experiences', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('link')->nullable();
+            $table->longText('desc')->nullable();
             $table->string('image_url')->nullable();
+            $table->foreignId('experience_id')->constrained('experiences')->onDelete('cascade');
 
             $table->timestamps();
         });

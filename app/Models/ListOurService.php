@@ -13,8 +13,16 @@ class ListOurService extends Model
 
     protected $fillable = [
         'title',
-        'desc'
+        'desc',
+        'our_service_id'
     ];
+
+    protected $with = ['OurService'];
+
+    public function OurService()
+    {
+        return $this->belongsTo('App\Models\OurService');
+    }
 
     protected $dates = ['created_at'];
 

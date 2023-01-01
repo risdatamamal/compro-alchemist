@@ -21,6 +21,12 @@ class SocialMediasSeeder extends Seeder
                 'linkedin' => 'https://www.linkedin.com/company/yourname',
                 'instagram' => 'https://www.instagram.com/yourname',
             ],
+            [
+                'facebook' => 'https://www.facebook.com/yourname',
+                'twitter' => 'https://twitter.com/yourname',
+                'linkedin' => 'https://www.linkedin.com/company/yourname',
+                'instagram' => 'https://www.instagram.com/yourname',
+            ],
         ];
 
         foreach ($data as $key => $value) {

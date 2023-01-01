@@ -12,7 +12,7 @@ class OurServiceController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListOurService::query();
+            $query = ListOurService::query()->where('our_service_id', 1);
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {

@@ -18,6 +18,7 @@ class CreateListPracticingAreasTable extends Migration
             $table->string('title')->nullable();
             $table->longText('desc')->nullable();
             $table->string('image_url')->nullable();
+            $table->foreignId('practicing_area_id')->constrained('practicing_areas')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -11,7 +11,6 @@ use App\Models\ListAttorney;
 use App\Models\ListExperience;
 use App\Models\ListOurService;
 use App\Models\ListPracticingArea;
-use App\Models\ListWhy;
 use App\Models\OurService;
 use App\Models\PracticingArea;
 use App\Models\SocialMedia;
@@ -24,18 +23,39 @@ class HomeController extends Controller
         $data = [
             'header' => Header::where('id', 1)->first(),
             'about' => About::where('id', 1)->first(),
-            'experience' => Experience::where('id', 1)->first(),
-            'listExperiences' => ListExperience::all(),
             'ourService' => OurService::where('id', 1)->first(),
-            'listOurService' => ListOurService::all(),
+            'experience' => Experience::where('id', 1)->first(),
             'practicingarea' => PracticingArea::where('id', 1)->first(),
-            'listPracticingArea' => ListPracticingArea::all(),
-            'attorneys' => Attorneys::where('id', 1)->first(),
-            'listAttorney' => ListAttorney::all(),
-            'contacts' => Contact::where('id', 1)->first(),
-            'socialMedias' => SocialMedia::where('id', 1)->first(),
+            'attorney' => Attorneys::where('id', 1)->first(),
+            'contact' => Contact::where('id', 1)->first(),
+            'socialMedia' => SocialMedia::where('id', 1)->first(),
+            // Content with List Item
+            'listOurService' => ListOurService::where('our_service_id', 1)->get(),
+            'listExperiences' => ListExperience::where('experience_id', 1)->get(),
+            'listPracticingArea' => ListPracticingArea::where('practicing_area_id', 1)->get(),
+            'listAttorney' => ListAttorney::where('attorney_id', 1)->get(),
         ];
 
         return view('pages.index', $data);
+    }
+
+    public function alchemistMudaIndonesia()
+    {
+        $data = [
+            'header' => Header::where('id', 2)->first(),
+            'about' => About::where('id', 2)->first(),
+            'ourService' => OurService::where('id', 2)->first(),
+            'experience' => Experience::where('id', 2)->first(),
+            'practicingarea' => PracticingArea::where('id', 2)->first(),
+            'attorney' => Attorneys::where('id', 2)->first(),
+            'contact' => Contact::where('id', 2)->first(),
+            'socialMedia' => SocialMedia::where('id', 2)->first(),
+            // Content with List Item
+            'listOurService' => ListOurService::where('our_service_id', 2)->get(),
+            'listExperiences' => ListExperience::where('experience_id', 2)->get(),
+            'listPracticingArea' => ListPracticingArea::where('practicing_area_id', 2)->get(),
+            'listAttorney' => ListAttorney::where('attorney_id', 2)->get(),
+        ];
+        return view('pages.muda-indonesia.index', $data);
     }
 }

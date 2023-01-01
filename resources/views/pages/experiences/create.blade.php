@@ -38,9 +38,8 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Link</label>
-                                                <input type="text" class="form-control" name="link"
-                                                    placeholder="https://www.yourexperience.com" required />
+                                                <label>Description</label>
+                                                <textarea name="desc" id="desc"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -53,6 +52,8 @@
                                                     onchange="previewImage()" />
                                             </div>
                                         </div>
+                                        <input type="text" class="form-control" id="id" name="experience_id"
+                                            required value=1 hidden />
                                     </div>
                                     <div class="row">
                                         <div class="col text-right">
@@ -72,6 +73,10 @@
 @endsection
 
 @push('addon-script')
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('desc');
+    </script>
     <script>
         function previewImage() {
             const imageUrl = document.querySelector('#image_url')

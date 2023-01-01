@@ -48,7 +48,8 @@
                     <a href="{{ route('about') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/about*') ? 'active' : '' }}">About</a>
                     <a href="{{ route('our-service') }}"
-                        class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our Service</a>
+                        class="list-group-item list-group-item-action {{ request()->is('admin/our-service*') ? 'active' : '' }}">Our
+                        Service</a>
                     <a href="{{ route('experience') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/experience*') ? 'active' : '' }}">Experience</a>
                     <a href="{{ route('practicing-area') }}"
@@ -104,12 +105,17 @@
                                         </form>
                                     </div>
                                 </li>
+                                <li class="nav-item">
+                                    <div class="nav-link">
+                                        <a class="btn btn-outline-primary btn-sm" href="{{ route('dashboard-muda-indonesia') }}" role="button"><i class="fa fa-refresh" aria-hidden="true"> Switch</i></a>
+                                    </div>
+                                </li>
                             </ul>
                             <!-- Desktop Menu End -->
 
                             <!-- Mobile -->
                             <ul class="navbar-nav d-block d-lg-none">
-                                <li class="nav-item">
+                                <li class="nav-item dropdown">
                                     <a href="#" class="nav-link" id="navbarDropdown" role="button"
                                         data-toggle="dropdown"> Hi, {{ Auth::user()->name }} </a>
                                     <div class="dropdown-menu">
@@ -124,6 +130,11 @@
                                             style="display: none">
                                             @csrf
                                         </form>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="nav-link">
+                                        <a class="btn btn-outline-primary btn-sm" href="{{ route('dashboard-muda-indonesia') }}" role="button"><i class="fa fa-refresh" aria-hidden="true"> Switch</i></a>
                                     </div>
                                 </li>
                             </ul>

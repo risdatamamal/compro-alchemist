@@ -11,10 +11,19 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurServiceController;
 use App\Http\Controllers\PracticingAreaController;
 use App\Http\Controllers\SocialMediaController;
-use App\Http\Controllers\WhyController;
+use App\Http\Controllers\MudaIndonesia\AboutMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\AttorneyMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\ContactMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\DashboardMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\ExperienceMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\HeaderMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\OurServiceMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\PracticingAreaMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\SocialMediaMudaIndonesiaController;
 use Illuminate\Support\Facades\{Route, Auth};
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/alchemist-muda-indonesia', [HomeController::class, 'alchemistMudaIndonesia'])->name('alchemist-muda-indonesia');
 
 Auth::routes([
     'register' => false,
@@ -23,14 +32,11 @@ Auth::routes([
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
+        // Law Office
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // CRUD Admin
         Route::resource('admin', AdminController::class);
-
-        // Update Header
-        Route::get('/header', [HeaderController::class, 'index'])->name('header');
-        Route::put('/header/{id}', [HeaderController::class, 'update'])->name('update-header');
 
         // Update Header
         Route::get('/header', [HeaderController::class, 'index'])->name('header');
@@ -89,4 +95,66 @@ Route::prefix('admin')
         // Update Social Media
         Route::get('/social-media', [SocialMediaController::class, 'index'])->name('social-media');
         Route::put('/social-media/{id}', [SocialMediaController::class, 'update'])->name('update-social-media');
+
+        Route::prefix('alchemist-muda-indonesia')
+            ->group(function () {
+                // Muda Indonesia
+                Route::get('/', [DashboardMudaIndonesiaController::class, 'index'])->name('dashboard-muda-indonesia');
+
+                // Update Header
+                Route::get('/header', [HeaderMudaIndonesiaController::class, 'index'])->name('header-muda-indonesia');
+                Route::put('/header/{id}', [HeaderMudaIndonesiaController::class, 'update'])->name('update-header-muda-indonesia');
+
+                // Update About
+                Route::get('/about', [AboutMudaIndonesiaController::class, 'index'])->name('about-muda-indonesia');
+                Route::put('/about/{id}', [AboutMudaIndonesiaController::class, 'update'])->name('update-about-muda-indonesia');
+
+                // Update Our Service
+                Route::get('/our-service', [OurServiceMudaIndonesiaController::class, 'index'])->name('our-service-muda-indonesia');
+                Route::put('/our-service/{id}', [OurServiceMudaIndonesiaController::class, 'updateOurService'])->name('update-our-service-muda-indonesia');
+                // CRUD List Our Service
+                Route::get('/our-service/create', [OurServiceMudaIndonesiaController::class, 'create'])->name('create-our-service-muda-indonesia');
+                Route::post('/our-service/create', [OurServiceMudaIndonesiaController::class, 'store'])->name('store-our-service-muda-indonesia');
+                Route::get('/our-service/edit/{id}', [OurServiceMudaIndonesiaController::class, 'edit'])->name('edit-our-service-muda-indonesia');
+                Route::put('/our-service/edit/{id}', [OurServiceMudaIndonesiaController::class, 'updateListOurService'])->name('update-list-our-service-muda-indonesia');
+                Route::delete('/our-service/{id}', [OurServiceMudaIndonesiaController::class, 'destroy'])->name('delete-our-service-muda-indonesia');
+
+                // Update Experience
+                Route::get('/experience', [ExperienceMudaIndonesiaController::class, 'index'])->name('experience-muda-indonesia');
+                Route::put('/experience/{id}', [ExperienceMudaIndonesiaController::class, 'updateExperience'])->name('update-experience-muda-indonesia');
+                // CRUD List Experience
+                Route::get('/experience/create', [ExperienceMudaIndonesiaController::class, 'create'])->name('create-experience-muda-indonesia');
+                Route::post('/experience/create', [ExperienceMudaIndonesiaController::class, 'store'])->name('store-experience-muda-indonesia');
+                Route::get('/experience/edit/{id}', [ExperienceMudaIndonesiaController::class, 'edit'])->name('edit-experience-muda-indonesia');
+                Route::put('/experience/edit/{id}', [ExperienceMudaIndonesiaController::class, 'updateListExperience'])->name('update-list-experience-muda-indonesia');
+                Route::delete('/experience/{id}', [ExperienceMudaIndonesiaController::class, 'destroy'])->name('delete-experience-muda-indonesia');
+
+                // Update Practicing Area
+                Route::get('/practicing-area', [PracticingAreaMudaIndonesiaController::class, 'index'])->name('practicing-area-muda-indonesia');
+                Route::put('/practicing-area/{id}', [PracticingAreaMudaIndonesiaController::class, 'updatePracticingArea'])->name('update-practicing-area-muda-indonesia');
+                // CRUD List Practicing Area
+                Route::get('/practicing-area/create', [PracticingAreaMudaIndonesiaController::class, 'create'])->name('create-practicing-area-muda-indonesia');
+                Route::post('/practicing-area/create', [PracticingAreaMudaIndonesiaController::class, 'store'])->name('store-practicing-area-muda-indonesia');
+                Route::get('/practicing-area/edit/{id}', [PracticingAreaMudaIndonesiaController::class, 'edit'])->name('edit-practicing-area-muda-indonesia');
+                Route::put('/practicing-area/edit/{id}', [PracticingAreaMudaIndonesiaController::class, 'updateListPracticingArea'])->name('update-list-practicing-area-muda-indonesia');
+                Route::delete('/practicing-area/{id}', [PracticingAreaMudaIndonesiaController::class, 'destroy'])->name('delete-practicing-area-muda-indonesia');
+
+                // Update Attorney
+                Route::get('/attorney', [AttorneyMudaIndonesiaController::class, 'index'])->name('attorney-muda-indonesia');
+                Route::put('/attorney/{id}', [AttorneyMudaIndonesiaController::class, 'updateAttorney'])->name('update-attorney-muda-indonesia');
+                // CRUD List Attorney
+                Route::get('/attorney/create', [AttorneyMudaIndonesiaController::class, 'create'])->name('create-attorney-muda-indonesia');
+                Route::post('/attorney/create', [AttorneyMudaIndonesiaController::class, 'store'])->name('store-attorney-muda-indonesia');
+                Route::get('/attorney/edit/{id}', [AttorneyMudaIndonesiaController::class, 'edit'])->name('edit-attorney-muda-indonesia');
+                Route::put('/attorney/edit/{id}', [AttorneyMudaIndonesiaController::class, 'updateListAttorney'])->name('update-list-attorney-muda-indonesia');
+                Route::delete('/attorney/{id}', [AttorneyMudaIndonesiaController::class, 'destroy'])->name('delete-attorney-muda-indonesia');
+
+                // Update Contact
+                Route::get('/contact', [ContactMudaIndonesiaController::class, 'index'])->name('contact-muda-indonesia');
+                Route::put('/contact/{id}', [ContactMudaIndonesiaController::class, 'update'])->name('update-contact-muda-indonesia');
+
+                // Update Social Media
+                Route::get('/social-media', [SocialMediaMudaIndonesiaController::class, 'index'])->name('social-media-muda-indonesia');
+                Route::put('/social-media/{id}', [SocialMediaMudaIndonesiaController::class, 'update'])->name('update-social-media-muda-indonesia');
+            });
     });

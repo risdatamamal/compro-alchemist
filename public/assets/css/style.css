@@ -1692,7 +1692,13 @@ a {
 .images {
     position: relative;
 }
-.images .img2 {
+.images.left .img1 {
+    position: relative;
+    z-index: 2;
+    -webkit-box-shadow: -17px 10px 34px -18px rgba(0, 0, 0, 0.5);
+    box-shadow: -17px 10px 34px -18px rgba(0, 0, 0, 0.5);
+}
+.images.left .img2 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1701,7 +1707,7 @@ a {
     box-shadow: -17px 10px 34px -18px rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 767px) {
-    .images .img2 {
+    .images.left .img2 {
         position: relative;
         left: inherit !important;
         top: inherit !important;
@@ -1721,6 +1727,7 @@ a {
     z-index: 1;
     max-width: 500px;
 }
+
 @media (max-width: 767px) {
     .images.right .img2 {
         position: relative;

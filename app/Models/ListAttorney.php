@@ -15,8 +15,16 @@ class ListAttorney extends Model
         'name',
         'position',
         'desc',
-        'image_url'
+        'image_url',
+        'attorney_id'
     ];
+
+    protected $with = ['attorneys'];
+
+    public function attorneys()
+    {
+        return $this->belongsTo('App\Models\Attorneys');
+    }
 
     protected $dates = ['created_at'];
 

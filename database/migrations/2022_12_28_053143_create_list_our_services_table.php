@@ -17,6 +17,7 @@ class CreateListOurServicesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->longText('desc')->nullable();
+            $table->foreignId('our_service_id')->constrained('our_services')->onDelete('cascade');
 
             $table->timestamps();
         });

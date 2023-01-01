@@ -42,17 +42,16 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Link</label>
-                                                <input type="text" class="form-control" name="link"
-                                                    placeholder="https://www.yourclient.com" value="{{ $item->link }}" />
+                                                <label>Description</label>
+                                                <textarea name="desc" id="desc">{!! $item->desc !!}</textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Image</label>
                                                 <p>*Note: Dimension 1900x1200 pixel</p>
-                                                <img id="image-preview" class="d-block mb-2 img-fluid" src="{{ Storage::url($item->image_url) }}"
-                                                    alt="Preview" />
+                                                <img id="image-preview" class="d-block mb-2 img-fluid"
+                                                    src="{{ Storage::url($item->image_url) }}" alt="Preview" />
                                                 <input type="file" class="form-control" id="image_url" name="image_url"
                                                     onchange="previewImage()" />
                                             </div>
@@ -75,6 +74,10 @@
 @endsection
 
 @push('addon-script')
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('desc');
+    </script>
     <script>
         function previewImage() {
             const imageUrl = document.querySelector('#image_url')

@@ -14,7 +14,7 @@ class ExperienceController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListExperience::query();
+            $query = ListExperience::query()->where('experience_id', 1);
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {

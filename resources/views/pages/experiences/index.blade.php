@@ -85,7 +85,6 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Name</th>
-                                                <th>Link</th>
                                                 <th>Image</th>
                                                 <th>Action</th>
                                             </tr>
@@ -127,10 +126,6 @@
                 {
                     data: 'name',
                     name: 'name'
-                },
-                {
-                    data: 'link',
-                    name: 'link'
                 },
                 {
                     data: 'image_url',

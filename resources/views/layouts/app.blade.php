@@ -7,9 +7,9 @@
 
     <title>@yield('title')</title>
 
-    <meta name="description" content="Alchemist Law">
+    <meta name="description" content="Alchemist Law Office">
     <meta name="keywords"
-        content="alchemist law">
+        content="alchemist law office">
     <link rel="shortcut icon" href="/assets/images/logo-1.png" type="image/x-icon" />
 
 

@@ -17,7 +17,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="{{ route('home') }}">Alchemist Law Office</a>
-                            <a class="dropdown-item" href="#">Alchemist Muda Indonesia</a>
+                            <a class="dropdown-item" href="{{ route('alchemist-muda-indonesia') }}">Alchemist Muda Indonesia</a>
                         </div>
                     </div>
                 </li>

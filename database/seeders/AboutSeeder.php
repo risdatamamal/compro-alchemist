@@ -19,6 +19,10 @@ class AboutSeeder extends Seeder
                 'title' => 'About Us',
                 'desc' => 'Description About'
             ],
+            [
+                'title' => 'About Us',
+                'desc' => 'Description About'
+            ],
         ];
 
         foreach ($data as $key => $value) {

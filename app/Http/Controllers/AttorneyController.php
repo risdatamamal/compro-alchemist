@@ -13,7 +13,7 @@ class AttorneyController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $query = ListAttorney::query();
+            $query = ListAttorney::query()->where('attorney_id', 1);
 
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {

@@ -13,9 +13,17 @@ class ListExperience extends Model
 
     protected $fillable = [
         'name',
-        'link',
-        'image_url'
+        'desc',
+        'image_url',
+        'experience_id'
     ];
+
+    protected $with = ['experience'];
+
+    public function experience()
+    {
+        return $this->belongsTo('App\Models\Experience');
+    }
 
     protected $dates = ['created_at'];
 
