@@ -93,48 +93,48 @@
                     <p>{!! $experience->desc !!}</p>
                 </div>
             </div>
-            <div class="multiple-items pb_slide_v1">
-                @forelse ($listExperiences as $experience)
-                    <div>
-                        <a type="button" class="link-block" data-toggle="modal"
-                            data-target="#modalExperience{{ $experience->id }}">
-                            <img src="{{ Storage::url($experience->image_url) }}" alt="Experiences" class="img-fluid">
-                            <div class="slide-text">
-                                <h2>{{ $experience->name }}</h2>
-                                <p>Read More</p>
-                            </div>
-                        </a>
-                    </div>
-                @empty
-                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                        No List Experience Found
-                    </div>
-                @endforelse
-            </div>
-            @foreach ($listExperiences as $experience)
-                <!-- Modal -->
-                <div class="modal fade" id="modalExperience{{ $experience->id }}" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Detail Experience</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <h4>{{ $experience->name }}</h4>
-                                {!! $experience->desc !!}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+        </div>
+        <div class="multiple-items pb_slide_v1">
+            @forelse ($listExperiences as $experience)
+                <div>
+                    <a type="button" class="link-block" data-toggle="modal"
+                        data-target="#modalExperience{{ $experience->id }}">
+                        <img src="{{ Storage::url($experience->image_url) }}" alt="Experiences" class="img-fluid">
+                        <div class="slide-text">
+                            <h2>{{ $experience->name }}</h2>
+                            <p>Read More</p>
+                        </div>
+                    </a>
+                </div>
+            @empty
+                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                    No List Experience Found
+                </div>
+            @endforelse
+        </div>
+        @foreach ($listExperiences as $experience)
+            <!-- Modal -->
+            <div class="modal fade" id="modalExperience{{ $experience->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Detail Experience</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <h4>{{ $experience->name }}</h4>
+                            {!! $experience->desc !!}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </section>
 
     <section class="pb_section pb_bg-half" data-section="practicing-areas" id="section-practicing-areas">
