@@ -93,10 +93,11 @@
                     <p>{!! $experience->desc !!}</p>
                 </div>
             </div>
-            @forelse ($listExperiences as $experience)
-                <div class="multiple-items pb_slide_v1">
+            <div class="multiple-items pb_slide_v1">
+                @forelse ($listExperiences as $experience)
                     <div>
-                        <a type="button" class="link-block" data-toggle="modal" data-target="#modalExperience">
+                        <a type="button" class="link-block" data-toggle="modal"
+                            data-target="#modalExperience{{ $experience->id }}">
                             <img src="{{ Storage::url($experience->image_url) }}" alt="Experiences" class="img-fluid">
                             <div class="slide-text">
                                 <h2>{{ $experience->name }}</h2>
@@ -104,9 +105,15 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                @empty
+                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                        No List Experience Found
+                    </div>
+                @endforelse
+            </div>
+            @foreach ($listExperiences as $experience)
                 <!-- Modal -->
-                <div class="modal fade" id="modalExperience" tabindex="-1" role="dialog"
+                <div class="modal fade" id="modalExperience{{ $experience->id }}" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -126,11 +133,7 @@
                         </div>
                     </div>
                 </div>
-            @empty
-                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                    No List Experience Found
-                </div>
-            @endforelse
+            @endforeach
         </div>
     </section>
 
@@ -144,9 +147,10 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    {{-- Forelse --}}
-                    @forelse ($listPracticingArea as $listPracticing)
-                        <div class="single-item pb_slide_v2">
+
+                    <div class="single-item pb_slide_v2">
+                        {{-- Forelse --}}
+                        @forelse ($listPracticingArea as $listPracticing)
                             <div>
                                 <div class="d-lg-flex d-md-block slide_content">
                                     <div class="pb_content-media"
@@ -158,13 +162,12 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    @empty
-                        <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                            No List Practicing Area Found
-                        </div>
-                    @endforelse
+                        @empty
+                            <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                                No List Practicing Area Found
+                            </div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,9 +181,9 @@
                     <p>{!! $attorney->desc !!}</p>
                 </div>
             </div>
-            {{-- Forelse --}}
-            @forelse ($listAttorney as $attorney)
-                <div class="multiple-items pb_slide_v1">
+            <div class="multiple-items pb_slide_v1">
+                {{-- Forelse --}}
+                @forelse ($listAttorney as $attorney)
                     <div class="col-md">
                         <div class="card text-center pb_card_v1 mb-4">
                             <img class="card-img-top rounded-circle w-50 mx-auto"
@@ -190,43 +193,45 @@
                                 <h6 class="card-subtitle mb-2">{{ $attorney->position }}</h6>
                                 <!-- Button trigger modal -->
                                 <p><button type="button" class="btn btn-link" data-toggle="modal"
-                                        data-target="#modalAttorney">
+                                        data-target="#modalAttorney{{ $attorney->id }}">
                                         Read Full Bio
                                     </button>
                                 </p>
                             </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
+                        No List Attorney Found
+                    </div>
+                @endforelse
+            </div>
+            @foreach ($listAttorney as $attorney)
                 <!-- Modal -->
-                <div class="modal fade" id="modalAttorney" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Detail Attorney</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <img class="card-img-top rounded-circle w-50 mx-auto mt-4"
-                                src="{{ Storage::url($attorney->image_url) }}" alt="Attorney Image">
-                            <div class="modal-body text-center">
-                                <h4>{{ $attorney->name }}</h4>
-                                <h6>{{ $attorney->position }}</h6>
-                                {!! $attorney->desc !!}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+            <div class="modal fade" id="modalAttorney{{ $attorney->id }}" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Detail Attorney</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <img class="card-img-top rounded-circle w-50 mx-auto mt-4"
+                            src="{{ Storage::url($attorney->image_url) }}" alt="Attorney Image">
+                        <div class="modal-body text-center">
+                            <h4>{{ $attorney->name }}</h4>
+                            <h6>{{ $attorney->position }}</h6>
+                            {!! $attorney->desc !!}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
-            @empty
-                <div class="col-12 text-center py-5" data-aos="fade-up" data-aos-delay="100">
-                    No List Attorney Found
-                </div>
-            @endforelse
+            </div>
+            @endforeach
         </div>
     </section>
 
