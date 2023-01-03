@@ -147,7 +147,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="single-item pb_slide_v2">
                         {{-- Forelse --}}
                         @forelse ($listPracticingArea as $listPracticing)
@@ -181,7 +180,7 @@
                     <p>{!! $attorney->desc !!}</p>
                 </div>
             </div>
-            <div class="multiple-items pb_slide_v1">
+            <div class="multiple-items pb_slide_v2">
                 {{-- Forelse --}}
                 @forelse ($listAttorney as $attorney)
                     <div class="col-md">
@@ -208,29 +207,29 @@
             </div>
             @foreach ($listAttorney as $attorney)
                 <!-- Modal -->
-            <div class="modal fade" id="modalAttorney{{ $attorney->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Detail Attorney</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <img class="card-img-top rounded-circle w-50 mx-auto mt-4"
-                            src="{{ Storage::url($attorney->image_url) }}" alt="Attorney Image">
-                        <div class="modal-body text-center">
-                            <h4>{{ $attorney->name }}</h4>
-                            <h6>{{ $attorney->position }}</h6>
-                            {!! $attorney->desc !!}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal fade" id="modalAttorney{{ $attorney->id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Detail Attorney</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <img class="card-img-top rounded-circle w-50 mx-auto mt-4"
+                                src="{{ Storage::url($attorney->image_url) }}" alt="Attorney Image">
+                            <div class="modal-body text-center">
+                                <h4>{{ $attorney->name }}</h4>
+                                <h6>{{ $attorney->position }}</h6>
+                                {!! $attorney->desc !!}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </section>
@@ -295,7 +294,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

@@ -147,7 +147,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="single-item pb_slide_v2">
                         {{-- Forelse --}}
                         @forelse ($listPracticingArea as $listPracticing)
@@ -181,7 +180,7 @@
                     <p>{!! $attorney->desc !!}</p>
                 </div>
             </div>
-            <div class="multiple-items pb_slide_v1">
+            <div class="multiple-items pb_slide_v2">
                 {{-- Forelse --}}
                 @forelse ($listAttorney as $attorney)
                     <div class="col-md">
