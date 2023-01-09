@@ -48,6 +48,6 @@ class HeaderMudaIndonesiaController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('header-alchemist-muda-indonesia');
+        return redirect()->route('header-muda-indonesia');
     }
 }
