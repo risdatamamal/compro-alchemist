@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             AttorneysSeeder::class,
             ContactsSeeder::class,
             SocialMediasSeeder::class,
+            PublicationsSeeder::class,
         ]);
     }
 }

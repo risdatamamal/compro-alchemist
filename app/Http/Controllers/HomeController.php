@@ -11,8 +11,10 @@ use App\Models\ListAttorney;
 use App\Models\ListExperience;
 use App\Models\ListOurService;
 use App\Models\ListPracticingArea;
+use App\Models\ListPublication;
 use App\Models\OurService;
 use App\Models\PracticingArea;
+use App\Models\Publication;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
@@ -27,6 +29,7 @@ class HomeController extends Controller
             'experience' => Experience::where('id', 1)->first(),
             'practicingarea' => PracticingArea::where('id', 1)->first(),
             'attorney' => Attorneys::where('id', 1)->first(),
+            'publication' => Publication::where('id', 1)->first(),
             'contact' => Contact::where('id', 1)->first(),
             'socialMedia' => SocialMedia::where('id', 1)->first(),
             // Content with List Item
@@ -34,6 +37,7 @@ class HomeController extends Controller
             'listExperiences' => ListExperience::where('experience_id', 1)->get(),
             'listPracticingArea' => ListPracticingArea::where('practicing_area_id', 1)->get(),
             'listAttorney' => ListAttorney::where('attorney_id', 1)->get(),
+            'listPublication' => ListPublication::limit(6)->where('publication_id', 1)->get(),
         ];
 
         return view('pages.index', $data);
@@ -48,6 +52,7 @@ class HomeController extends Controller
             'experience' => Experience::where('id', 2)->first(),
             'practicingarea' => PracticingArea::where('id', 2)->first(),
             'attorney' => Attorneys::where('id', 2)->first(),
+            'publication' => Publication::where('id', 2)->first(),
             'contact' => Contact::where('id', 2)->first(),
             'socialMedia' => SocialMedia::where('id', 2)->first(),
             // Content with List Item

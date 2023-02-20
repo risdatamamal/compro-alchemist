@@ -28,6 +28,11 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
+
     /**
      * Create a new controller instance.
      *
@@ -36,5 +41,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function logout()
+    {
+        $this->guard()->logout();
+
+        return redirect('/system/auth/login'); // This will redirect the user to the login page after they log out.
     }
 }

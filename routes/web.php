@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttorneyController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExperienceController;
@@ -19,20 +20,44 @@ use App\Http\Controllers\MudaIndonesia\ExperienceMudaIndonesiaController;
 use App\Http\Controllers\MudaIndonesia\HeaderMudaIndonesiaController;
 use App\Http\Controllers\MudaIndonesia\OurServiceMudaIndonesiaController;
 use App\Http\Controllers\MudaIndonesia\PracticingAreaMudaIndonesiaController;
+use App\Http\Controllers\MudaIndonesia\PublicationMudaIndonesiaController;
 use App\Http\Controllers\MudaIndonesia\SocialMediaMudaIndonesiaController;
+use App\Http\Controllers\PublicationController;
 use Illuminate\Support\Facades\{Route, Auth};
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/alchemist-muda-indonesia', [HomeController::class, 'alchemistMudaIndonesia'])->name('alchemist-muda-indonesia');
 
+//TODO: User Route
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+//TODO: Publication Law Office
+Route::get('/publication', [PublicationController::class, 'more'])->name('more-publication');
+Route::get('/publication/{category}', [PublicationController::class, 'moreCategory'])->name('more-category-publication');
+Route::get('/publication/{category}/{slug}', [PublicationController::class, 'detail'])->name('detail-publication');
+
+Route::prefix('alchemist-muda-indonesia')
+    ->group(
+        function () {
+            Route::get('/', [HomeController::class, 'alchemistMudaIndonesia'])->name('alchemist-muda-indonesia');
+
+            //TODO: Publication Muda Indonesia
+            Route::get('/publication', [PublicationMudaIndonesiaController::class, 'more'])->name('ami-more-publication');
+            Route::get('/publication/article/judul', [PublicationMudaIndonesiaController::class, 'detail'])->name('ami-detail-publication');
+        }
+    );
+
+//TODO: Authentication
+Route::get('/system/auth/login', [LoginController::class, 'showLogin'])->name('login');
+Route::post('/system/auth/login', [LoginController::class, 'login']);
 Auth::routes([
     'register' => false,
+    'login' => false,
 ]);
 
+//TODO: Admin Route
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'verified'])
     ->group(function () {
-        // Law Office
+        //TODO: Law Office
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // CRUD Admin
@@ -56,7 +81,6 @@ Route::prefix('admin')
         Route::put('/our-service/edit/{id}', [OurServiceController::class, 'updateListOurService'])->name('update-list-our-service');
         Route::delete('/our-service/{id}', [OurServiceController::class, 'destroy'])->name('delete-our-service');
 
-
         // Update Experience
         Route::get('/experience', [ExperienceController::class, 'index'])->name('experience');
         Route::put('/experience/{id}', [ExperienceController::class, 'updateExperience'])->name('update-experience');
@@ -66,7 +90,6 @@ Route::prefix('admin')
         Route::get('/experience/edit/{id}', [ExperienceController::class, 'edit'])->name('edit-experience');
         Route::put('/experience/edit/{id}', [ExperienceController::class, 'updateListExperience'])->name('update-list-experience');
         Route::delete('/experience/{id}', [ExperienceController::class, 'destroy'])->name('delete-experience');
-
 
         // Update Practicing Area
         Route::get('/practicing-area', [PracticingAreaController::class, 'index'])->name('practicing-area');
@@ -88,6 +111,16 @@ Route::prefix('admin')
         Route::put('/attorney/edit/{id}', [AttorneyController::class, 'updateListAttorney'])->name('update-list-attorney');
         Route::delete('/attorney/{id}', [AttorneyController::class, 'destroy'])->name('delete-attorney');
 
+        // Update Publication
+        Route::get('/publication', [PublicationController::class, 'index'])->name('publication');
+        Route::put('/publication/{id}', [PublicationController::class, 'updatePublication'])->name('update-publication');
+        // CRUD List Publication
+        Route::get('/publication/create', [PublicationController::class, 'create'])->name('create-publication');
+        Route::post('/publication/create', [PublicationController::class, 'store'])->name('store-publication');
+        Route::get('/publication/edit/{id}', [PublicationController::class, 'edit'])->name('edit-publication');
+        Route::put('/publication/edit/{id}', [PublicationController::class, 'updateListPublication'])->name('update-list-publication');
+        Route::delete('/publication/{id}', [PublicationController::class, 'destroy'])->name('delete-publication');
+
         // Update Contact
         Route::get('/contact', [ContactController::class, 'index'])->name('contact');
         Route::put('/contact/{id}', [ContactController::class, 'update'])->name('update-contact');
@@ -96,6 +129,7 @@ Route::prefix('admin')
         Route::get('/social-media', [SocialMediaController::class, 'index'])->name('social-media');
         Route::put('/social-media/{id}', [SocialMediaController::class, 'update'])->name('update-social-media');
 
+        //TODO: Muda Indonesia
         Route::prefix('alchemist-muda-indonesia')
             ->group(function () {
                 // Muda Indonesia
@@ -148,6 +182,11 @@ Route::prefix('admin')
                 Route::get('/attorney/edit/{id}', [AttorneyMudaIndonesiaController::class, 'edit'])->name('edit-attorney-muda-indonesia');
                 Route::put('/attorney/edit/{id}', [AttorneyMudaIndonesiaController::class, 'updateListAttorney'])->name('update-list-attorney-muda-indonesia');
                 Route::delete('/attorney/{id}', [AttorneyMudaIndonesiaController::class, 'destroy'])->name('delete-attorney-muda-indonesia');
+
+                // Update Publication
+                Route::get('/publication', [PublicationMudaIndonesiaController::class, 'index'])->name('publication-muda-indonesia');
+                Route::put('/publication/{id}', [PublicationMudaIndonesiaController::class, 'updatePublication'])->name('update-publication-muda-indonesia');
+                // CRUD List Publication
 
                 // Update Contact
                 Route::get('/contact', [ContactMudaIndonesiaController::class, 'index'])->name('contact-muda-indonesia');

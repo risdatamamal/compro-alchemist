@@ -1674,9 +1674,17 @@ a {
     position: relative;
     display: block;
 }
+.pb_section_navbar {
+    padding: 3.5em 0;
+    position: relative;
+    display: block;
+}
 @media (max-width: 991px) {
     .pb_section {
         padding: 4em 0;
+    }
+    .pb_section_navbar {
+        padding: 3em 0;
     }
 }
 .pb_section.pb_bg-half:before {
@@ -2700,6 +2708,37 @@ a {
       flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.publication {
+    padding: 1rem;
+    background-color: #fff;
+}
+.publication .card {
+    border-radius: 10px;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+.publication .card img {
+    background-color: #9e3668;
+    border-radius: 10px 10px 0 0;
+}
+.publication .card-link {
+    text-decoration: none;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem 1rem;
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+  margin-top: -0.25rem;
+  margin-bottom: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -55,7 +55,7 @@ class AttorneyController extends Controller
         ]);
     }
 
-    // Update Title and Desc Our Service
+    // Update Title and Desc Attorney
     public function updateAttorney(Request $request, $id)
     {
         $data = $request->all();

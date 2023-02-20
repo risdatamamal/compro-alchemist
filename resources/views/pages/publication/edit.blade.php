@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Create List Practicing Area
+    Edit List Publication
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Practicing Area</h2>
-                <p class="dashboard-subtitle">Create New List Practicing Area</p>
+                <h2 class="dashboard-title">Publication</h2>
+                <p class="dashboard-subtitle">Edit "{{ $item->name }}" Publication</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
@@ -26,34 +26,45 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('store-practicing-area') }}" method="POST"
+                                <form action="{{ route('update-list-publication', $item->id) }}" method="POST"
                                     enctype="multipart/form-data">
+                                    @method('PUT')
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Title</label>
                                                 <input type="text" class="form-control" name="title"
-                                                    placeholder="Example: Criminal Law" required />
+                                                    placeholder="Title of your Publication" value="{{ $item->title }}" required />
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Description</label>
-                                                <textarea name="desc" id="desc"></textarea>
+                                                <textarea name="desc" id="desc">{!! $item->desc !!}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select name="category" class="select2 form-control" required>
+                                                    <option selected disabled>Select Category</option>
+                                                    <option value="article" {{ $item->category == 'article' ? 'selected' : '' }}>Article
+                                                    </option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Image</label>
-                                                <p>*Note: Dimension 1900x1200 pixel</p>
-                                                <img id="image-preview" class="d-block mb-2 img-fluid" src="#"
+                                                <p>*Note: Dimension 1080x1080 pixel</p>
+                                                <img id="image-preview" class="d-block mb-2 img-fluid" src="{{ Storage::url($item->image_url) }}"
                                                     alt="Preview" />
                                                 <input type="file" class="form-control" id="image_url" name="image_url"
                                                     onchange="previewImage()" />
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" id="id" name="practicing_area_id"
+                                        <input type="text" class="form-control" id="id" name="publication_id"
                                             required value=1 hidden />
                                     </div>
                                     <div class="row">
@@ -74,6 +85,7 @@
 @endsection
 
 @push('addon-script')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('desc');

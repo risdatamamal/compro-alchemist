@@ -55,6 +55,8 @@
                         Area</a>
                     <a href="{{ route('attorney-muda-indonesia') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/alchemist-muda-indonesia/attorney*') ? 'active' : '' }}">Attorney</a>
+                    <a href="{{ route('publication-muda-indonesia') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/alchemist-muda-indonesia/publication*') ? 'active' : '' }}">Publication</a>
                     <a href="{{ route('contact-muda-indonesia') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/alchemist-muda-indonesia/contact*') ? 'active' : '' }}">Contact</a>
                     <a href="{{ route('social-media-muda-indonesia') }}"
@@ -106,7 +108,8 @@
                                 <li class="nav-item">
                                     <div class="nav-link">
                                         <a class="btn btn-outline-primary btn-sm" href="{{ route('dashboard') }}"
-                                            role="button"><i class="fa fa-refresh" aria-hidden="true"> Switch</i></a>
+                                            role="button"><i class="fa fa-refresh" aria-hidden="true">
+                                                Switch</i></a>
                                     </div>
                                 </li>
                             </ul>

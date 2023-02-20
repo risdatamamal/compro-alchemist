@@ -57,6 +57,8 @@
                         Area</a>
                     <a href="{{ route('attorney') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/attorney*') ? 'active' : '' }}">Attorney</a>
+                    <a href="{{ route('publication') }}"
+                        class="list-group-item list-group-item-action {{ request()->is('admin/publication*') ? 'active' : '' }}">Publication</a>
                     <a href="{{ route('contact') }}"
                         class="list-group-item list-group-item-action {{ request()->is('admin/contact*') ? 'active' : '' }}">Contact</a>
                     <a href="{{ route('social-media') }}"
