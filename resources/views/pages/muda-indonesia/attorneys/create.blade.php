@@ -9,8 +9,8 @@
     <div class="section-content section-dashboard-home" data-aos="fade-up">
         <div class="container-fluid">
             <div class="dashboard-heading">
-                <h2 class="dashboard-title">Our Service</h2>
-                <p class="dashboard-subtitle">Create New List Our Service</p>
+                <h2 class="dashboard-title">Attorney</h2>
+                <p class="dashboard-subtitle">Create New List Attorney</p>
             </div>
             <div class="dashboard-content">
                 <div class="row">
