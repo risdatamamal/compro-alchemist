@@ -78,8 +78,8 @@ class PublicationController extends Controller
     {
         $data = $request->all();
 
-        $data['image_url'] = $request->file('image_url')->store('assets/publication', 'public');
-
+        $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
+        $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
         $data['slug'] = Str::slug($request->title);
 
         ListPublication::create($data);
@@ -104,7 +104,13 @@ class PublicationController extends Controller
         if ($request->file('image_url') == null) {
             $data['image_url'] = $item->image_url;
         } else if ($request->file('image_url') != null) {
-            $data['image_url'] = $request->file('image_url')->store('assets/publication', 'public');
+            $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
+        }
+
+        if ($request->file('video_url') == null) {
+            $data['video_url'] = $item->video_url;
+        } else if ($request->file('video_url') != null) {
+            $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
         }
 
         $data['slug'] = Str::slug($request->title);
@@ -127,7 +133,7 @@ class PublicationController extends Controller
         $data = [
             'publication' => Publication::where('id', 1)->first(),
             'socialMedia' => SocialMedia::where('id', 1)->first(),
-            'listPublication' => ListPublication::where('publication_id', 1)->get(),
+            'listPublication' => ListPublication::where('publication_id', 1)->orderBy('created_at', 'desc')->get(),
         ];
 
         return view('pages.publication.more', $data);
@@ -140,7 +146,7 @@ class PublicationController extends Controller
             'listPublication' => ListPublication::where([
                 ['publication_id', 1],
                 ['category', $category],
-            ])->get(),
+            ])->orderBy('created_at', 'desc')->get(),
 
             'socialMedia' => SocialMedia::where('id', 1)->first(),
         ];

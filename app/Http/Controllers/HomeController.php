@@ -37,7 +37,7 @@ class HomeController extends Controller
             'listExperiences' => ListExperience::where('experience_id', 1)->get(),
             'listPracticingArea' => ListPracticingArea::where('practicing_area_id', 1)->get(),
             'listAttorney' => ListAttorney::where('attorney_id', 1)->get(),
-            'listPublication' => ListPublication::limit(6)->where('publication_id', 1)->get(),
+            'listPublication' => ListPublication::limit(6)->where('publication_id', 1)->orderBy('created_at', 'desc')->get(),
         ];
 
         return view('pages.index', $data);

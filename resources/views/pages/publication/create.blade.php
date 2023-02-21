@@ -61,7 +61,18 @@
                                                 <img id="image-preview" class="d-block mb-2 img-fluid" src="#"
                                                     alt="Preview" />
                                                 <input type="file" class="form-control" id="image_url" name="image_url"
-                                                    onchange="previewImage()" />
+                                                    accept="image/*" onchange="previewImage()" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Video (Optional)</label>
+                                                <p>*Note: Dimension 1080x1080 pixel and type file mp4</p>
+                                                <video class="d-block mb-2 img-fluid" style="display:none" alt="Preview" controls autoplay>
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                                <input type="file" class="form-control" id="video_url" name="video_url"
+                                                    accept="video/*" onchange="previewVideo()" />
                                             </div>
                                         </div>
                                         <input type="text" class="form-control" id="id" name="publication_id"
@@ -97,6 +108,14 @@
             const imageFile = new FileReader()
             imageFile.readAsDataURL(imageUrl.files[0])
             imageFile.onload = (e) => (imagePreview.src = e.target.result)
+        }
+    </script>
+    <script>
+        function previewVideo() {
+            let file = event.target.files[0];
+            let blobURL = URL.createObjectURL(file);
+            document.querySelector("video").style.display = 'block';
+            document.querySelector("video").src = blobURL;
         }
     </script>
 @endpush

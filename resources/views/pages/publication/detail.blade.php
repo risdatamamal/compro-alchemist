@@ -21,8 +21,13 @@
                     <img src="{{ Storage::url($publication->image_url) }}" class="img-fluid" alt="Images" />
                     <h3 class="mt-5">{{ $publication->title }}</h3>
                     <p>{{ $publication->created_at->format('M d, Y') }}</p>
+                    @if ($publication->video_url != null)
+                        <video controls autoplay class="w-100" name="media">
+                            <source src="https://mdbootstrap.com/img/video/animation-intro.mp4" type="video/mp4" />
+                        </video>
+                    @endif
                     <p>
-                       {!! $publication->desc !!}
+                        {!! $publication->desc !!}
                     </p>
                 </div>
             </div>
