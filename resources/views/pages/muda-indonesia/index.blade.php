@@ -6,7 +6,7 @@
 
 @section('content')
     <section class="pb_cover_v1 text-left cover-bg-black cover-bg-opacity-4"
-        style="background-image: {{ $header->bg_url == null ? 'url(' . asset('assets/images/1900x1200_img_7.jpg') .')' : 'url(storage/' . $header->bg_url . ')' }}"
+        style="background-image: {{ $header->bg_url == null ? 'url(' . asset('assets/images/1900x1200_img_7.jpg') . ')' : 'url(storage/' . $header->bg_url . ')' }}"
         id="section-home">
         <div class="container">
             <div class="row align-items-center justify-content-end">
@@ -245,83 +245,17 @@
                 </div>
             </div>
             <div class="row row-cols-1 row-cols-lg-3 justify-content-center gap-5 mb-5">
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('ami-detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-                <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                    <img src="assets/images/1900x1200_img_7.jpg" class="card-img-top" alt="Thumbnail" />
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold mb-4">Judul</h5>
-                        <p class="card-subtitle">Description</p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between mb-3">
-                        <div class="p-3 card-subtitle">Jan 20, 2023</div>
-                        <a href="{{ route('detail-publication') }}" class="card-link p-2">Read more</a>
-                    </div>
-                </div>
-
-                {{-- @forelse ($publications as $publication)
+                @forelse ($listPublication as $publication)
                     <div class="card shadow mx-2 mb-4" style="width: 18rem">
-                        <img src="{{ Storage::url($publication->thumbnail) }}" class="card-img-top" alt="Thumbnail" />
+                        <img src="{{ Storage::url($publication->image_url) }}" class="card-img-top" alt="Thumbnail" />
                         <div class="card-body">
                             <h5 class="card-title fw-bold">{{ $publication->title }}</h5>
-                            <p class="card-subtitle">{!! Str::limit($publication->content, 150) !!}</p>
+                            <p class="card-subtitle">{!! Str::limit($publication->desc, 150) !!}</p>
                         </div>
                         <div class="d-flex flex-row justify-content-between mb-3">
-                            <div class="p-3 card-subtitle">{{ $publication->updated_at->format('M d Y') }}</div>
-                            <a href="{{ route('details-publication', $publication->slug) }}" class="card-link p-2">Read more</a>
+                            <div class="p-3 card-subtitle">{{ $publication->created_at->format('M d, Y') }}</div>
+                            <a href="{{ route('ami-detail-publication', [$publication->category, $publication->slug]) }}"
+                                class="card-link p-2">Read more</a>
                         </div>
                     </div>
                 @empty
@@ -336,13 +270,15 @@
                             </div>
                         </div>
                     </div>
-                @endforelse --}}
+                @endforelse
             </div>
-            <div class="d-flex flex-row justify-content-center mb-3">
-                <a href="{{ route('ami-more-publication') }}" class="btn btn-primary rounded-pill">
-                    See more <i class="fa fa-arrow-down"></i>
-                </a>
-            </div>
+            @if (count($listPublication) >= 6)
+                <div class="d-flex flex-row justify-content-center mb-3">
+                    <a href="{{ route('ami-more-publication') }}" class="btn btn-primary rounded-pill">
+                        See more <i class="fa fa-arrow-down"></i>
+                    </a>
+                </div>
+            @endif
         </div>
     </section>
 
@@ -409,5 +345,4 @@
 
         </div>
     </section>
-
 @endsection

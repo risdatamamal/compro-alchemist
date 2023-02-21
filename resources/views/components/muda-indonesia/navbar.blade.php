@@ -34,7 +34,8 @@
                             @lang('navbar.publication')
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Article</a>
+                            <a class="dropdown-item"
+                                href="{{ route('ami-more-category-publication', 'article') }}">Article</a>
                         </div>
                     </div>
                 </li>

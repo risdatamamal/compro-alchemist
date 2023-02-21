@@ -28,8 +28,8 @@
                         @endif
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('update-publication-muda-indonesia', $publication->id) }}" method="POST"
-                                    enctype="multipart/form-data">
+                                <form action="{{ route('update-publication-muda-indonesia', $publication->id) }}"
+                                    method="POST" enctype="multipart/form-data">
                                     @method('PUT')
                                     @csrf
                                     <div class="row">
@@ -38,7 +38,8 @@
                                                 <label>Title</label>
                                                 <input type="text"
                                                     class="form-control @error('title') is-invalid @enderror" name="title"
-                                                    required placeholder="Title on header" value="{{ $publication->title }}" />
+                                                    required placeholder="Title on header"
+                                                    value="{{ $publication->title }}" />
                                                 @error('title')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -71,20 +72,20 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="row mb-5">
+                <div class="row mb-5">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('create-attorney') }}" class="btn btn-primary mb-3 rounded-pill">
-                                    + Create New Attorney
+                                <a href="{{ route('create-publication-muda-indonesia') }}" class="btn btn-primary mb-3 rounded-pill">
+                                    + Create New Publication
                                 </a>
                                 <div class="table-responsive">
                                     <table class="table table-hover scroll-horizontal-vertical w-100" id="crudTable">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Position</th>
+                                                <th>Title</th>
+                                                <th>Category</th>
                                                 <th>Image</th>
                                                 <th>Action</th>
                                             </tr>
@@ -95,7 +96,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
@@ -124,12 +125,12 @@
                     name: 'id'
                 },
                 {
-                    data: 'name',
-                    name: 'name'
+                    data: 'title',
+                    name: 'title'
                 },
                 {
-                    data: 'position',
-                    name: 'position'
+                    data: 'category',
+                    name: 'category'
                 },
                 {
                     data: 'image_url',

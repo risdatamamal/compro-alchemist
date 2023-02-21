@@ -4,19 +4,22 @@ namespace App\Http\Controllers\MudaIndonesia;
 
 use App\Http\Controllers\Controller;
 use App\Models\Header;
+use App\Models\ListPublication;
 use App\Models\Publication;
 use App\Models\SocialMedia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
 
 class PublicationMudaIndonesiaController extends Controller
 {
     public function index()
     {
         if (request()->ajax()) {
-            // $query = ListPublication::query()->where('publication_id', 2);
+            $query = ListPublication::query()->where('publication_id', 2);
 
-            // return DataTables::of($query)
-            return DataTables::of()
+            return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
                         <div class="btn-group">
@@ -29,10 +32,10 @@ class PublicationMudaIndonesiaController extends Controller
                                         Action
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="action' .  $item->id . '">
-                                    <a class="dropdown-item" href="' . route('edit-publication', $item->id) . '">
+                                    <a class="dropdown-item" href="' . route('edit-publication-muda-indonesia', $item->id) . '">
                                         Edit
                                     </a>
-                                    <form action="' . route('delete-publication', $item->id) . '" method="POST">
+                                    <form action="' . route('delete-publication-muda-indonesia', $item->id) . '" method="POST">
                                         ' . method_field('delete') . csrf_field() . '
                                         <button type="submit" class="dropdown-item text-danger">
                                             Delete
@@ -67,21 +70,100 @@ class PublicationMudaIndonesiaController extends Controller
         return redirect()->route('publication-muda-indonesia');
     }
 
+    public function create()
+    {
+        return view('pages.muda-indonesia.publication.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
+        $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
+        $data['slug'] = Str::slug($request->title);
+
+        ListPublication::create($data);
+
+        return redirect()->route('publication-muda-indonesia');
+    }
+
+    public function edit($id)
+    {
+        $item = ListPublication::findOrFail($id);
+
+        return view('pages.muda-indonesia.publication.edit', [
+            'item' => $item
+        ]);
+    }
+
+    public function updateListPublication(Request $request, $id)
+    {
+        $data = $request->all();
+        $item = ListPublication::findOrFail($id);
+
+        if ($request->file('image_url') == null) {
+            $data['image_url'] = $item->image_url;
+        } else if ($request->file('image_url') != null) {
+            $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
+        }
+
+        if ($request->file('video_url') == null) {
+            $data['video_url'] = $item->video_url;
+        } else if ($request->file('video_url') != null) {
+            $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
+        }
+
+        $data['slug'] = Str::slug($request->title);
+
+        $item->update($data);
+
+        return redirect()->route('publication-muda-indonesia');
+    }
+
+    public function destroy($id)
+    {
+        $item = ListPublication::findorFail($id);
+        $item->delete();
+
+        return redirect()->route('publication-muda-indonesia');
+    }
+
     public function more()
     {
         $data = [
-            'header' => Header::where('id', 2)->first(),
             'publication' => Publication::where('id', 2)->first(),
             'socialMedia' => SocialMedia::where('id', 2)->first(),
+            'listPublication' => ListPublication::where('publication_id', 2)->orderBy('created_at', 'desc')->get(),
         ];
 
         return view('pages.muda-indonesia.publication.more', $data);
     }
 
-    public function detail()
+    public function moreCategory($category)
     {
         $data = [
-            'header' => Header::where('id', 2)->first(),
+            'publication' => Publication::where('id', 2)->first(),
+            'listPublication' => ListPublication::where([
+                ['publication_id', 2],
+                ['category', $category],
+            ])->orderBy('created_at', 'desc')->get(),
+
+            'socialMedia' => SocialMedia::where('id', 2)->first(),
+        ];
+
+        return view('pages.muda-indonesia.publication.category', $data);
+    }
+
+    public function detail($category, $slug)
+    {
+        $data = [
+            'publication' => ListPublication::where([
+                ['publication_id', 2],
+                ['category', $category],
+                ['slug', $slug],
+            ])->firstOrFail(),
+
             'socialMedia' => SocialMedia::where('id', 2)->first(),
         ];
 

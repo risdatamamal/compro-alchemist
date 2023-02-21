@@ -41,7 +41,12 @@ Route::prefix('alchemist-muda-indonesia')
 
             //TODO: Publication Muda Indonesia
             Route::get('/publication', [PublicationMudaIndonesiaController::class, 'more'])->name('ami-more-publication');
-            Route::get('/publication/article/judul', [PublicationMudaIndonesiaController::class, 'detail'])->name('ami-detail-publication');
+            Route::get(
+                '/publication/{category}',
+                [PublicationMudaIndonesiaController::class, 'moreCategory']
+            )->name('ami-more-category-publication');
+            Route::get('/publication/{category}/{slug}', [PublicationMudaIndonesiaController::class, 'detail'])->name('ami-detail-publication');
+
         }
     );
 
@@ -187,6 +192,11 @@ Route::prefix('admin')
                 Route::get('/publication', [PublicationMudaIndonesiaController::class, 'index'])->name('publication-muda-indonesia');
                 Route::put('/publication/{id}', [PublicationMudaIndonesiaController::class, 'updatePublication'])->name('update-publication-muda-indonesia');
                 // CRUD List Publication
+                Route::get('/publication/create', [PublicationMudaIndonesiaController::class, 'create'])->name('create-publication-muda-indonesia');
+                Route::post('/publication/create', [PublicationMudaIndonesiaController::class, 'store'])->name('store-publication-muda-indonesia');
+                Route::get('/publication/edit/{id}', [PublicationMudaIndonesiaController::class, 'edit'])->name('edit-publication-muda-indonesia');
+                Route::put('/publication/edit/{id}', [PublicationMudaIndonesiaController::class, 'updateListPublication'])->name('update-list-publication-muda-indonesia');
+                Route::delete('/publication/{id}', [PublicationMudaIndonesiaController::class, 'destroy'])->name('delete-publication-muda-indonesia');
 
                 // Update Contact
                 Route::get('/contact', [ContactMudaIndonesiaController::class, 'index'])->name('contact-muda-indonesia');

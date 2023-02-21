@@ -60,6 +60,8 @@ class HomeController extends Controller
             'listExperiences' => ListExperience::where('experience_id', 2)->get(),
             'listPracticingArea' => ListPracticingArea::where('practicing_area_id', 2)->get(),
             'listAttorney' => ListAttorney::where('attorney_id', 2)->get(),
+            'listPublication' => ListPublication::limit(6)->where('publication_id', 2)->orderBy('created_at', 'desc')->get(),
+
         ];
         return view('pages.muda-indonesia.index', $data);
     }
