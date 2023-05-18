@@ -79,8 +79,14 @@ class PublicationMudaIndonesiaController extends Controller
     {
         $data = $request->all();
 
-        $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
-        $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
+        if ($request->file('image_url') != null) {
+            $data['image_url'] = $request->file('image_url')->store('assets/publication/image', 'public');
+        }
+
+        if ($request->file('video_url') != null) {
+            $data['video_url'] = $request->file('video_url')->store('assets/publication/video', 'public');
+        }
+
         $data['slug'] = Str::slug($request->title);
 
         ListPublication::create($data);

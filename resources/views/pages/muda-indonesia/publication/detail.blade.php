@@ -12,8 +12,7 @@
         <div class="container">
             <div class="row justify-content-md-center text-center mb-5">
                 <div class="col-lg-7">
-                    <h2 class="mt-0 heading-border-top font-weight-normal">{{ $publication->title }}</h2>
-                    <p>{{ ucfirst($publication->category) }}</p>
+                    <h1 class="mt-0 heading-border-top font-weight-bold">{{ ucfirst($publication->category) }}</h1>
                 </div>
             </div>
             <div class="row">
